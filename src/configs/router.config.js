@@ -1,9 +1,8 @@
-import router from '../router'
+import router from "../router";
 
 // 路由拦截器
 router.beforeEach((to, from, next) => {
-  next()
-})
+  next();
+});
 
-router.afterEach((to, from) => {
-})
+router.afterEach((to, from) => {});
