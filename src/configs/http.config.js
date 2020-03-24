@@ -1,32 +1,32 @@
-import Vue from "vue";
-import axios from "axios";
-import router from "@/router";
+import Vue from 'vue'
+import axios from 'axios'
+import router from '@/router'
 
 //请求前置拦截
 axios.interceptors.request.use(
   config => {
-    if (process.env.VUE_APP_API_SOURCE === "dev") {
-      config.baseURL = window.api.dev.server;
+    if (process.env.VUE_APP_API_SOURCE === 'dev') {
+      config.baseURL = window.api.dev.server
     }
 
-    if (process.env.VUE_APP_API_SOURCE === "test") {
-      config.baseURL = window.api.test.server;
+    if (process.env.VUE_APP_API_SOURCE === 'test') {
+      config.baseURL = window.api.test.server
     }
 
-    if (process.env.VUE_APP_API_SOURCE === "prod") {
-      config.baseURL = window.api.prod.server;
+    if (process.env.VUE_APP_API_SOURCE === 'prod') {
+      config.baseURL = window.api.prod.server
     }
 
     // 配置授权头 【样例】
     // if (config.url.replace(config.baseURL, '') !== '/login') {
     //   config.headers.accesstoken = UserStatus.getToken()
     // }
-    return config;
+    return config
   },
   error => {
-    return Promise.reject(error);
+    return Promise.reject(error)
   }
-);
+)
 
 //请求响应后置拦截
 axios.interceptors.response.use(
@@ -36,11 +36,11 @@ axios.interceptors.response.use(
     //   router.push('/login')
     //   return
     // }
-    return response;
+    return response
   },
   error => {
-    return Promise.reject(error);
+    return Promise.reject(error)
   }
-);
+)
 
-Vue.prototype.$http = axios;
+Vue.prototype.$http = axios

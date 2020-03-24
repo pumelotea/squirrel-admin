@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios'
 
 export function post(url, params) {
   return new Promise((resolve, reject) => {
@@ -6,16 +6,16 @@ export function post(url, params) {
       .post(url, params)
       .then(
         res => {
-          resolve(res.data);
+          resolve(res.data)
         },
         err => {
-          reject(err.data);
+          reject(err.data)
         }
       )
       .catch(err => {
-        reject(err.data);
-      });
-  });
+        reject(err.data)
+      })
+  })
 }
 
 export function get(url, params) {
@@ -25,12 +25,12 @@ export function get(url, params) {
         params: params
       })
       .then(res => {
-        resolve(res.data);
+        resolve(res.data)
       })
       .catch(err => {
-        reject(err.data);
-      });
-  });
+        reject(err.data)
+      })
+  })
 }
 
 export function del(url, params) {
@@ -39,16 +39,16 @@ export function del(url, params) {
       .delete(url, params)
       .then(
         res => {
-          resolve(res.data);
+          resolve(res.data)
         },
         err => {
-          reject(err.data);
+          reject(err.data)
         }
       )
       .catch(err => {
-        reject(err.data);
-      });
-  });
+        reject(err.data)
+      })
+  })
 }
 
 export function put(url, params) {
@@ -58,10 +58,10 @@ export function put(url, params) {
         params: params
       })
       .then(res => {
-        resolve(res.data);
+        resolve(res.data)
       })
       .catch(err => {
-        reject(err.data);
-      });
-  });
+        reject(err.data)
+      })
+  })
 }

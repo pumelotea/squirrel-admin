@@ -1,15 +1,15 @@
-import "@babel/polyfill";
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
-import HttpApi from "@/apis/http.api";
-import "@/configs/router.config";
-import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
-Vue.use(ElementUI);
+import '@babel/polyfill'
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+import HttpApi from '@/apis/http.api'
+import '@/configs/router.config'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
 
-Vue.use(HttpApi);
+Vue.use(HttpApi)
 
 // 开启vconsole
 // if (process.env.NODE_ENV !== 'production') {
@@ -22,9 +22,9 @@ Vue.use(HttpApi);
 // import WM from '@/plugins/watermark.plugin'
 // WM.set('squirrelzoo.com','松鼠乐园开发版')
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
 new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount("#app");
+}).$mount('#app')

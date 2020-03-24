@@ -1,9 +1,11 @@
-<template> </template>
+<template>
+  <div>menu</div>
+</template>
 
 <script>
 export default {
-  name: "index"
-};
+  name: 'index'
+}
 </script>
 
 <style scoped></style>

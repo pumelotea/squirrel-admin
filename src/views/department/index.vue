@@ -1,4 +1,6 @@
-<template> </template>
+<template>
+  <div>department</div>
+</template>
 
 <script>
 export default {
