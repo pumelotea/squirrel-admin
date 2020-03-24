@@ -89,6 +89,7 @@ export default {
           if (preRoute) {
             //设置激活路由
             this.$store.commit('setActiveRoute', preRoute)
+            this.$store.commit('setActiveMenu', preRoute.menuPath)
             this.$router.push(preRoute.path)
           } else {
             this.$router.push('/')
@@ -97,22 +98,20 @@ export default {
       }
     },
     goto({ name, $attrs: { path } }) {
-      //尝试创建tab
-      let tab = {
-        name: name,
-        path: path
-      }
 
-      //判断是否打开过
-      if (!this.isOpenedRoute(tab)) {
-        this.$store.commit('pushNav', tab)
-      }
+
+      let index = this.navList.findIndex(e => {
+        return e.name === name
+      })
 
       //设置激活路由
-      this.$store.commit('setActiveRoute', tab)
+      this.$store.commit('setActiveRoute', this.navList[index])
+      this.$store.commit('setActiveMenu', this.navList[index].menuPath)
 
       //跳转
       this.$router.push(path)
+
+
     },
     closeTabs(type) {
       if (type === 'all') {

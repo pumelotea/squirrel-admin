@@ -1,12 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import fa from "element-ui/src/locale/lang/fa";
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    //tab导航栏数据存储
     navList: [],
-    activeRoute: null
+    //激活的路由
+    activeRoute: null,
+    //菜单列表
+    routerMappings: [],
+    //menu-path
+    activeMenu:[]
   },
   mutations: {
     pushNav(state, payload) {
@@ -21,7 +28,6 @@ export default new Vuex.Store({
      * @param type
      */
     removeNavAdvance(state, type) {
-      console.log(state.activeRoute)
       if (state.activeRoute === null) {
         //查询激活路由所在位置
         return
@@ -50,12 +56,18 @@ export default new Vuex.Store({
     },
     setActiveRoute(state, payload) {
       state.activeRoute = payload
-    }
+    },
+    setActiveMenu(state, payload) {
+      state.activeMenu = payload
+    },
   },
   actions: {},
   getters: {
     navList(state) {
       return state.navList
+    },
+    routerMappings(state){
+      return state.routerMappings
     },
     isOpenedRoute(state) {
       return payload => {
@@ -68,6 +80,9 @@ export default new Vuex.Store({
     },
     activeRoute(state) {
       return state.activeRoute
+    },
+    activeMenu(state){
+      return JSON.parse(JSON.stringify(state.activeMenu))
     }
   },
   modules: {}
