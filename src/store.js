@@ -29,9 +29,9 @@ export default new Vuex.Store({
      */
     removeNavAdvance(state, type) {
       if (state.activeRoute === null) {
-        //查询激活路由所在位置
         return
       }
+      //查询激活路由所在位置
       let startIndex = state.navList.findIndex(e => {
         return e.name === state.activeRoute.name
       })

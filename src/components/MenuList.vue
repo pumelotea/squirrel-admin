@@ -28,14 +28,12 @@ export default {
     ...mapGetters([
       'navList',
       'isOpenedRoute',
-      'setActiveRoute',
       'routerMappings',
       'activeMenu'
     ])
   },
   methods: {
     goto(index, indexPath) {
-      console.log(indexPath)
       //TODO 这些数据是通过路由获取
       let mapx = {
         '/user': '用户管理',
@@ -58,7 +56,7 @@ export default {
 
       //设置激活路由
       this.$store.commit('setActiveRoute', tab)
-
+      this.$store.commit('setActiveMenu', indexPath)
       //跳转
       this.$router.push(index)
     }
