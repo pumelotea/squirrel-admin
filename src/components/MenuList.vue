@@ -1,13 +1,13 @@
 <template>
   <div class="menu-list-container">
     <el-menu
-      :default-active="activeMenu[activeMenu.length-1]"
+      :default-active="activeMenu[activeMenu.length - 1]"
       :default-openeds="activeMenu"
       class="el-menu-vertical-demo"
       :collapse="isCollapse"
       @select="goto"
     >
-      <MenuContent/>
+      <MenuContent :data="menuTree" />
     </el-menu>
   </div>
 </template>
@@ -16,7 +16,7 @@
 import { mapGetters } from 'vuex'
 import MenuContent from './MenuContent'
 export default {
-  components:{
+  components: {
     MenuContent
   },
   data() {
@@ -28,26 +28,32 @@ export default {
     ...mapGetters([
       'navList',
       'isOpenedRoute',
-      'routerMappings',
-      'activeMenu'
+      'menuTree',
+      'activeMenu',
+      'tabNameMappings'
     ])
   },
   methods: {
     goto(index, indexPath) {
-      //TODO 这些数据是通过路由获取
-      let mapx = {
-        '/user': '用户管理',
-        '/dashboard': '看板',
-        '/role': '角色管理',
-        '/department': '部门管理',
-        '/menu': '菜单管理'
-      }
+
+      let node = this.menuTree
+      indexPath.forEach((e, i) => {
+        if (i === indexPath.length - 1) {
+          node = node[Number(e)]
+        } else {
+          node = node[Number(e)].children
+        }
+      })
+
+
       //尝试创建tab
       let tab = {
-        name: mapx[index],
-        path: index,
-        menuPath:JSON.parse(JSON.stringify(indexPath))
+        name: this.tabNameMappings[node.routerPath],
+        path: node.routerPath,
+        menuPath: JSON.parse(JSON.stringify(indexPath))
       }
+
+      console.log(tab)
 
       //判断是否打开过
       if (!this.isOpenedRoute(tab)) {
@@ -58,7 +64,7 @@ export default {
       this.$store.commit('setActiveRoute', tab)
       this.$store.commit('setActiveMenu', indexPath)
       //跳转
-      this.$router.push(index)
+      this.$router.push(node.routerPath)
     }
   }
 }

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <template v-for="menu in data">
-      <el-menu-item v-if="menu.isRouter" :index="menu.path">
+    <template v-for="(menu,index) in data">
+      <el-menu-item v-if="menu.isRouter" :index="String(index)">
         <i class="el-icon-menu"></i>
         <span slot="title">{{ menu.name }}</span>
       </el-menu-item>
-      <el-submenu :index="menu.path" v-else>
+      <el-submenu :index="String(index)" v-else>
         <template slot="title">
           <i class="el-icon-location"></i>
           <span slot="title">{{ menu.name }}</span>

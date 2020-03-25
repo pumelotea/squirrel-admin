@@ -56,10 +56,8 @@ export default {
   computed: {
     ...mapGetters([
       'navList',
-      'setActiveRoute',
       'isOpenedRoute',
       'activeRoute',
-      'removeNavAdvance'
     ])
   },
   watch: {

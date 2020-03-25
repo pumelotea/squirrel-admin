@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import fa from "element-ui/src/locale/lang/fa";
+import router from './router'
 
 Vue.use(Vuex)
 
@@ -10,10 +10,14 @@ export default new Vuex.Store({
     navList: [],
     //激活的路由
     activeRoute: null,
-    //菜单列表
+    //动态路由
     routerMappings: [],
+    //tab导航名称和路径的关联
+    tabNameMappings: {},
+    //菜单列表
+    menuTree: [],
     //menu-path
-    activeMenu:[]
+    activeMenu: []
   },
   mutations: {
     pushNav(state, payload) {
@@ -60,14 +64,45 @@ export default new Vuex.Store({
     setActiveMenu(state, payload) {
       state.activeMenu = payload
     },
+    setRouterMappings(state, payload) {
+      state.routerMappings = payload
+      //添加路由
+      const registedRouters = router.options.routes //FIXME首页必须放在数组第一个
+      payload.forEach(e => {
+        const route = {
+          path: e.routerPath,
+          name: e.name,
+          component: () => import(`@/views${e.view}`),
+          meta: {
+            isKeepalive: e.isKeepalive
+          }
+        }
+        registedRouters[0].children.push(route)
+        // console.log(route)
+      })
+      console.log(registedRouters)
+      router.addRoutes(registedRouters)
+    },
+    setMenuTree(state, payload) {
+      state.menuTree = payload
+    },
+    setTabNameMappings(state, payload) {
+      state.tabNameMappings = payload
+    }
   },
   actions: {},
   getters: {
     navList(state) {
       return state.navList
     },
-    routerMappings(state){
+    routerMappings(state) {
       return state.routerMappings
+    },
+    tabNameMappings(state) {
+      return state.tabNameMappings
+    },
+    menuTree(state) {
+      return state.menuTree
     },
     isOpenedRoute(state) {
       return payload => {
@@ -81,7 +116,7 @@ export default new Vuex.Store({
     activeRoute(state) {
       return state.activeRoute
     },
-    activeMenu(state){
+    activeMenu(state) {
       return JSON.parse(JSON.stringify(state.activeMenu))
     }
   },
