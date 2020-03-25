@@ -6,6 +6,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    isRouterInit: false,
     //tab导航栏数据存储
     navList: [],
     //激活的路由
@@ -80,7 +81,6 @@ export default new Vuex.Store({
         registedRouters[0].children.push(route)
         // console.log(route)
       })
-      console.log(registedRouters)
       router.addRoutes(registedRouters)
     },
     setMenuTree(state, payload) {

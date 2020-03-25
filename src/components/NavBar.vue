@@ -117,6 +117,11 @@ export default {
       }
       this.$store.commit('removeNavAdvance', type)
     }
+  },
+  mounted() {
+    if(this.activeRoute){
+      this.activeTab = this.activeRoute.name
+    }
   }
 }
 </script>

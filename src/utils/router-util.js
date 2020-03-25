@@ -9,12 +9,15 @@ export function forEachMenuTree(menuTree) {
 
       if (!pNode) {
         pNode = {
-          routerPath: ''
+          routerPath: '',
+          menuPath: []
         }
       }
 
       //拼接路由
       tree[i]['routerPath'] = pNode['routerPath'] + tree[i].path
+      //预先生成菜单节点路径
+      tree[i]['menuPath'] = [...pNode['menuPath'], tree[i]['menuId']]
 
       if (tree[i].isRouter === false) {
         forEachTree(tree[i].children, tree[i])

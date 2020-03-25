@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     goto(index, indexPath) {
-      console.log(indexPath)
+      // console.log(indexPath)
 
       let node = findMenuByMenuId(this.menuTree, index)
 
@@ -47,7 +47,7 @@ export default {
         menuPath: JSON.parse(JSON.stringify(indexPath))
       }
 
-      console.log(tab)
+      // console.log(tab)
 
       //判断是否打开过
       if (!this.isOpenedRoute(tab)) {
