@@ -15,6 +15,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import MenuContent from './MenuContent'
+import {findMenuByMenuId} from "../utils/router-util";
 export default {
   components: {
     MenuContent
@@ -35,15 +36,9 @@ export default {
   },
   methods: {
     goto(index, indexPath) {
+      console.log(indexPath)
 
-      let node = this.menuTree
-      indexPath.forEach((e, i) => {
-        if (i === indexPath.length - 1) {
-          node = node[Number(e)]
-        } else {
-          node = node[Number(e)].children
-        }
-      })
+      let node = findMenuByMenuId(this.menuTree,index)
 
 
       //尝试创建tab
@@ -62,7 +57,7 @@ export default {
 
       //设置激活路由
       this.$store.commit('setActiveRoute', tab)
-      this.$store.commit('setActiveMenu', indexPath)
+      this.$store.commit('setActiveMenu', tab.menuPath)
       //跳转
       this.$router.push(node.routerPath)
     }
