@@ -21,7 +21,8 @@ export function forEachMenuTree(menuTree) {
       } else {
         routerList.push(tree[i])
         if (tree[i].routerPath) {
-          tabNameMappings[tree[i].routerPath] = tree[i].name
+          //路由路径映射路由节点
+          tabNameMappings[tree[i].routerPath] = tree[i]
         }
       }
     }

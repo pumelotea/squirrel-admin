@@ -15,7 +15,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import MenuContent from './MenuContent'
-import {findMenuByMenuId} from "../utils/router-util";
+import { findMenuByMenuId } from '../utils/router-util'
 export default {
   components: {
     MenuContent
@@ -38,12 +38,11 @@ export default {
     goto(index, indexPath) {
       console.log(indexPath)
 
-      let node = findMenuByMenuId(this.menuTree,index)
-
+      let node = findMenuByMenuId(this.menuTree, index)
 
       //尝试创建tab
       let tab = {
-        name: this.tabNameMappings[node.routerPath],
+        name: this.tabNameMappings[node.routerPath].name,
         path: node.routerPath,
         menuPath: JSON.parse(JSON.stringify(indexPath))
       }
