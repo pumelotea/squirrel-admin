@@ -29,6 +29,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
 export default {
   name: 'MainLayout',
   computed: {
@@ -80,8 +81,9 @@ export default {
   left: 220px;
   right: 0;
   bottom: 0;
-  top: 110px;
+  top: 115px;
   padding: 5px;
+  box-sizing: border-box;
 }
 
 .collapse-left {

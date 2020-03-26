@@ -1,5 +1,7 @@
 <template>
-  <div>role</div>
+  <page-layout>
+    12321
+  </page-layout>
 </template>
 
 <script>

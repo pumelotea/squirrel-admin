@@ -1,19 +1,15 @@
 <template>
-  <PageLayout>
+  <page-layout>
     <el-input v-model="aaa"></el-input>
     <pre>{{ list }}</pre>
-  </PageLayout>
+  </page-layout>
 </template>
 
 <script>
-import PageLayout from '../../layouts/PageLayout'
 import { forEachMenuTree } from '../../utils/router-util'
 
 export default {
   name: 'index',
-  components: {
-    PageLayout
-  },
   data() {
     return {
       aaa: '',

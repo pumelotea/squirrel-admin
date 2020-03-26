@@ -10,7 +10,8 @@ export function forEachMenuTree(menuTree) {
       if (!pNode) {
         pNode = {
           routerPath: '',
-          menuPath: []
+          menuPath: [],
+          breadcrumb:[],
         }
       }
 
@@ -18,6 +19,8 @@ export function forEachMenuTree(menuTree) {
       tree[i]['routerPath'] = pNode['routerPath'] + tree[i].path
       //预先生成菜单节点路径
       tree[i]['menuPath'] = [...pNode['menuPath'], tree[i]['menuId']]
+      //breadcrumb
+      tree[i]['breadcrumb'] = [...pNode['breadcrumb'], tree[i]]
 
       if (tree[i].isRouter === false) {
         forEachTree(tree[i].children, tree[i])

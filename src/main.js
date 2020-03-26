@@ -6,6 +6,7 @@ import store from './store'
 import HttpApi from '@/apis/http.api'
 import '@/configs/router.config'
 import ElementUI from 'element-ui'
+import './components'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 

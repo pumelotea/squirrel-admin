@@ -120,7 +120,8 @@ router.beforeEach((to, from, next) => {
       let tab = {
         name: node.name,
         path: node.routerPath,
-        menuPath: JSON.parse(JSON.stringify(node.menuPath))
+        menuPath: JSON.parse(JSON.stringify(node.menuPath)),
+        breadcrumb: node.breadcrumb
       }
 
       store.commit('setActiveRoute', tab)

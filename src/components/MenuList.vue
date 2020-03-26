@@ -1,8 +1,9 @@
 <template>
   <div class="menu-list-container">
     <el-menu
+      style="flex: 1;"
       :default-active="activeMenu[activeMenu.length - 1]"
-      :default-openeds="uniqueOpened?activeMenu:null"
+      :default-openeds="uniqueOpened ? activeMenu : null"
       :unique-opened="false"
       :collapse="isCollapse"
       :collapse-transition="false"
@@ -23,6 +24,7 @@
         </el-submenu>
       </template>
     </el-menu>
+    <div class="copyright">力通科技提供技术支持</div>
   </div>
 </template>
 
@@ -31,10 +33,10 @@ import { mapGetters } from 'vuex'
 import MenuContent from './MenuContent'
 import { findMenuByMenuId } from '../utils/router-util'
 export default {
-  props:{
+  props: {
     uniqueOpened: {
-      type:Boolean,
-      default:false
+      type: Boolean,
+      default: false
     }
   },
   components: {
@@ -60,7 +62,8 @@ export default {
       let tab = {
         name: this.tabNameMappings[node.routerPath].name,
         path: node.routerPath,
-        menuPath: JSON.parse(JSON.stringify(indexPath))
+        menuPath: JSON.parse(JSON.stringify(indexPath)),
+        breadcrumb: node.breadcrumb
       }
 
       // console.log(tab)
@@ -85,7 +88,17 @@ export default {
 .menu-list-container {
   height: 100%;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
+
+  .copyright{
+    font-size: 12px;
+    color: rgba(94, 94, 94, 0.4);
+    text-align: center;
+    word-break: break-all;
+    padding: 10px;
+  }
 </style>
 
 <style>

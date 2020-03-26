@@ -128,6 +128,7 @@ export default {
   align-items: center;
   align-content: center;
   height: 100%;
+  box-sizing: border-box;
 }
 </style>
 
@@ -137,7 +138,7 @@ export default {
 }
 
 .nav-bar-container .el-tabs--card > .el-tabs__header {
-  border-bottom-color: transparent;
+  /*border-bottom-color: transparent;*/
 }
 
 .nav-wrap {

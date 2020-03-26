@@ -69,6 +69,7 @@ export default {
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  box-sizing: border-box;
 }
 
 .logo {
