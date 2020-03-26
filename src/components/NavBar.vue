@@ -1,6 +1,7 @@
 <template>
   <div class="nav-bar-container">
-    <div style="flex: 1;overflow: auto">
+    <div class="nav-wrap">
+      <div style="color: #bdbdbd" v-if="navList.length===0">点击左侧菜单打开页面</div>
       <el-tabs
         v-model="activeTab"
         type="card"
@@ -54,11 +55,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'navList',
-      'isOpenedRoute',
-      'activeRoute',
-    ])
+    ...mapGetters(['navList', 'isOpenedRoute', 'activeRoute'])
   },
   watch: {
     activeRoute() {
@@ -96,8 +93,6 @@ export default {
       }
     },
     goto({ name, $attrs: { path } }) {
-
-
       let index = this.navList.findIndex(e => {
         return e.name === name
       })
@@ -108,8 +103,6 @@ export default {
 
       //跳转
       this.$router.push(path)
-
-
     },
     closeTabs(type) {
       if (type === 'all') {
@@ -119,7 +112,7 @@ export default {
     }
   },
   mounted() {
-    if(this.activeRoute){
+    if (this.activeRoute) {
       this.activeTab = this.activeRoute.name
     }
   }
@@ -143,5 +136,12 @@ export default {
 
 .nav-bar-container .el-tabs--card > .el-tabs__header {
   border-bottom-color: transparent;
+}
+
+.nav-wrap {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  align-items: center;
 }
 </style>

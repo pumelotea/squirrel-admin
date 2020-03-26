@@ -1,7 +1,11 @@
 <template>
   <div class="head-bar">
-    <div class="logo">
-      <span style="color: #6fbfff;font-weight: bold">LT</span>Admin
+    <div class="logo" :class="{
+        'collapse-width-menu': isCollapse,
+        'uncollapse-width-menu': !isCollapse
+      }">
+      <span style="color: #6fbfff;font-weight: bold">LT</span>
+      <span v-if="!isCollapse">Admin</span>
     </div>
     <div class="actions">
       <div class="action-item" @click="$store.commit('toggleIsCollapse')">
@@ -93,5 +97,15 @@ export default {
   align-items: center;
   align-content: center;
   justify-content: center;
+}
+
+.collapse-width-menu {
+  width: 64px;
+  transition: all 0.2s ease-in-out;
+}
+
+.uncollapse-width-menu {
+  width: 220px;
+  transition: all 0.2s ease-in-out;
 }
 </style>

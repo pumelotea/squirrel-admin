@@ -105,7 +105,7 @@ export default {
     }
   },
   mounted() {
-    forEachMenuTree(this.list)
+    // forEachMenuTree(this.list)
 
   }
 }

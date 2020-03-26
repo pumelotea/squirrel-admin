@@ -7,7 +7,21 @@
       :collapse="isCollapse"
       @select="goto"
     >
-      <MenuContent v-for="e in menuTree" :data="e" :key="e.routerPath"/>
+      <template v-for="e in menuTree">
+        <el-menu-item v-if="e.isRouter" :index="e.menuId">
+          <i class="el-icon-menu"></i>
+          <span slot="title">{{ e.name }}</span>
+        </el-menu-item>
+
+        <el-submenu :index="e.menuId" v-else>
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span slot="title">{{ e.name }}</span>
+          </template>
+          <MenuContent v-for="a in e.children" :data="a" />
+        </el-submenu>
+      </template>
+
     </el-menu>
   </div>
 </template>
