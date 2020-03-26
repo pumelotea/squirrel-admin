@@ -4,9 +4,10 @@
       <span style="color: #6fbfff;font-weight: bold">LT</span>Admin
     </div>
     <div class="actions">
-      <div class="action-item">
-        <i class="el-icon-s-fold"></i>
-        <!--        <i class="el-icon-s-unfold"></i>-->
+      <div class="action-item" @click="$store.commit('toggleIsCollapse')">
+        <i class="el-icon-s-unfold" v-if="isCollapse"></i>
+        <i class="el-icon-s-fold" v-else></i>
+
       </div>
     </div>
     <div class="space"></div>
@@ -41,8 +42,14 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
 export default {
-  name: 'HeadBar'
+  name: 'HeadBar',
+  computed: {
+    ...mapGetters([
+      'isCollapse'
+    ])
+  },
 }
 </script>
 

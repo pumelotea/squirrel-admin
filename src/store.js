@@ -18,7 +18,9 @@ export default new Vuex.Store({
     //菜单列表
     menuTree: [],
     //menu-path
-    activeMenu: []
+    activeMenu: [],
+    //菜单折叠状态
+    isCollapse:false,
   },
   mutations: {
     pushNav(state, payload) {
@@ -88,6 +90,9 @@ export default new Vuex.Store({
     },
     setTabNameMappings(state, payload) {
       state.tabNameMappings = payload
+    },
+    toggleIsCollapse(state){
+      state.isCollapse = !state.isCollapse
     }
   },
   actions: {},
@@ -118,6 +123,9 @@ export default new Vuex.Store({
     },
     activeMenu(state) {
       return JSON.parse(JSON.stringify(state.activeMenu))
+    },
+    isCollapse(state){
+      return state.isCollapse
     }
   },
   modules: {}

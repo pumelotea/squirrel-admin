@@ -7,7 +7,7 @@
       :collapse="isCollapse"
       @select="goto"
     >
-      <MenuContent :data="menuTree" />
+      <MenuContent v-for="e in menuTree" :data="e" :key="e.routerPath"/>
     </el-menu>
   </div>
 </template>
@@ -20,18 +20,14 @@ export default {
   components: {
     MenuContent
   },
-  data() {
-    return {
-      isCollapse: false
-    }
-  },
   computed: {
     ...mapGetters([
       'navList',
       'isOpenedRoute',
       'menuTree',
       'activeMenu',
-      'tabNameMappings'
+      'tabNameMappings',
+      'isCollapse'
     ])
   },
   methods: {
@@ -60,6 +56,9 @@ export default {
       //跳转
       this.$router.push(node.routerPath)
     }
+  },
+  mounted() {
+
   }
 }
 </script>
@@ -67,7 +66,7 @@ export default {
 <style scoped>
 .menu-list-container {
   height: 100%;
-  overflow: scroll;
+  overflow: auto;
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) {
 }

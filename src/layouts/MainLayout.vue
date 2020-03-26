@@ -3,21 +3,37 @@
     <div class="head-bar">
       <slot name="head-bar"></slot>
     </div>
-    <div class="nav-bar">
+    <div
+      class="nav-bar"
+      :class="{ 'collapse-left': isCollapse, 'uncollapse-left': !isCollapse }"
+    >
       <slot name="nav-bar"></slot>
     </div>
-    <div class="menu-list">
+    <div
+      class="menu-list"
+      :class="{
+        'collapse-width-menu': isCollapse,
+        'uncollapse-width-menu': !isCollapse
+      }"
+    >
       <slot name="menu-list"></slot>
     </div>
-    <div class="content">
+    <div
+      class="content"
+      :class="{ 'collapse-left': isCollapse, 'uncollapse-left': !isCollapse }"
+    >
       <slot name="content"></slot>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: 'MainLayout'
+  name: 'MainLayout',
+  computed: {
+    ...mapGetters(['isCollapse'])
+  }
 }
 </script>
 
@@ -66,5 +82,25 @@ export default {
   bottom: 0;
   top: 110px;
   padding: 5px;
+}
+
+.collapse-left {
+  left: 64px;
+  transition: all 0.5s;
+}
+
+.collapse-width-menu {
+  width: 64px;
+  transition: all 0.5s;
+}
+
+.uncollapse-left {
+  left: 220px;
+  transition: all 0.5s ease-in-out;
+}
+
+.uncollapse-width-menu {
+  width: 220px;
+  transition: all 0.5s ease-in-out;
 }
 </style>
