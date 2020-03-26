@@ -22,18 +22,12 @@
     </div>
     <div class="space"></div>
     <div class="actions">
-      <div class="action-item">
-        <i class="el-icon-chat-dot-square"></i>
-      </div>
-      <div class="action-item">
-        <i class="el-icon-picture"></i>
-      </div>
-      <div class="action-item">
-        <i class="el-icon-setting"></i>
-      </div>
+      <el-link class="action-item" :underline="false"><i class="el-icon-chat-dot-square"></i></el-link>
+      <el-link class="action-item" :underline="false"><i class="el-icon-picture"></i></el-link>
+      <el-link class="action-item" :underline="false"><i class="el-icon-setting"></i></el-link>
       <div class="action-item">
         <el-dropdown trigger="click">
-          <span class="el-dropdown-link">
+          <span class="el-dropdown-links">
             <el-avatar
               src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
             ></el-avatar>
