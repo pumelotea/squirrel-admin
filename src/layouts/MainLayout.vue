@@ -86,21 +86,21 @@ export default {
 
 .collapse-left {
   left: 64px;
-  transition: all 0.5s;
+  transition: all 0.2s ease-in-out;
 }
 
 .collapse-width-menu {
   width: 64px;
-  transition: all 0.5s;
+  transition: all 0.2s ease-in-out;
 }
 
 .uncollapse-left {
   left: 220px;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .uncollapse-width-menu {
   width: 220px;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 </style>

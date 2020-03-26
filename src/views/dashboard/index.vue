@@ -1,5 +1,6 @@
 <template>
   <PageLayout>
+    <el-input v-model="aaa"></el-input>
     <pre>{{list}}</pre>
   </PageLayout>
 </template>
@@ -15,6 +16,7 @@ export default {
   },
   data() {
     return {
+      aaa:'',
       list: [
         {
           name: '看板',

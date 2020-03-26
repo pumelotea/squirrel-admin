@@ -10,7 +10,10 @@
       <MenuList />
     </template>
     <template v-slot:content>
-      <router-view />
+      <keep-alive >
+        <router-view v-if="isKeepalive"/>
+      </keep-alive>
+      <router-view v-if="!isKeepalive"/>
     </template>
   </MainLayout>
 </template>
@@ -26,6 +29,14 @@ export default {
     HeadBar,
     NavBar,
     MenuList
+  },
+  computed:{
+    isKeepalive(){
+      return this.$route.meta.isKeepalive || false
+    }
+  },
+  mounted() {
+    console.log(this.isKeepalive)
   }
 }
 </script>
