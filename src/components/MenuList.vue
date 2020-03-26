@@ -2,9 +2,10 @@
   <div class="menu-list-container">
     <el-menu
       :default-active="activeMenu[activeMenu.length - 1]"
-      :default-openeds="activeMenu"
-      class="el-menu-vertical-demo"
+      :default-openeds="uniqueOpened?activeMenu:null"
+      :unique-opened="false"
       :collapse="isCollapse"
+      :collapse-transition="false"
       @select="goto"
     >
       <template v-for="e in menuTree">
@@ -30,6 +31,12 @@ import { mapGetters } from 'vuex'
 import MenuContent from './MenuContent'
 import { findMenuByMenuId } from '../utils/router-util'
 export default {
+  props:{
+    uniqueOpened: {
+      type:Boolean,
+      default:false
+    }
+  },
   components: {
     MenuContent
   },
@@ -78,8 +85,6 @@ export default {
 .menu-list-container {
   height: 100%;
   overflow: auto;
-}
-.el-menu-vertical-demo:not(.el-menu--collapse) {
 }
 </style>
 
