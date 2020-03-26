@@ -9,7 +9,7 @@
       <i class="el-icon-location"></i>
       <span slot="title">{{ data.name }}</span>
     </template>
-    <menu-content v-for="e in data.children" :data="e" :key="e.routerPath"/>
+    <menu-content v-for="e in data.children" :data="e" :key="e.routerPath" />
   </el-submenu>
 </template>
 

@@ -1,18 +1,24 @@
 <template>
   <div class="head-bar">
-    <div class="logo" :class="{
+    <div
+      class="logo"
+      :class="{
         'collapse-width-menu': isCollapse,
         'uncollapse-width-menu': !isCollapse
-      }">
+      }"
+    >
       <span style="color: #6fbfff;font-weight: bold">LT</span>
       <span v-if="!isCollapse">Admin</span>
     </div>
     <div class="actions">
-      <div class="action-item" @click="$store.commit('toggleIsCollapse')">
+      <el-link
+        class="action-item"
+        :underline="false"
+        @click="$store.commit('toggleIsCollapse')"
+      >
         <i class="el-icon-s-unfold" v-if="isCollapse"></i>
         <i class="el-icon-s-fold" v-else></i>
-
-      </div>
+      </el-link>
     </div>
     <div class="space"></div>
     <div class="actions">
@@ -46,14 +52,12 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   name: 'HeadBar',
   computed: {
-    ...mapGetters([
-      'isCollapse'
-    ])
-  },
+    ...mapGetters(['isCollapse'])
+  }
 }
 </script>
 

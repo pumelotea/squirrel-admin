@@ -10,10 +10,10 @@
       <MenuList />
     </template>
     <template v-slot:content>
-      <keep-alive >
-        <router-view v-if="isKeepalive"/>
+      <keep-alive>
+        <router-view v-if="isKeepalive" />
       </keep-alive>
-      <router-view v-if="!isKeepalive"/>
+      <router-view v-if="!isKeepalive" />
     </template>
   </MainLayout>
 </template>
@@ -30,8 +30,8 @@ export default {
     NavBar,
     MenuList
   },
-  computed:{
-    isKeepalive(){
+  computed: {
+    isKeepalive() {
       return this.$route.meta.isKeepalive || false
     }
   },

@@ -21,7 +21,6 @@
           <MenuContent v-for="a in e.children" :data="a" />
         </el-submenu>
       </template>
-
     </el-menu>
   </div>
 </template>
@@ -71,9 +70,7 @@ export default {
       this.$router.push(node.routerPath)
     }
   },
-  mounted() {
-
-  }
+  mounted() {}
 }
 </script>
 

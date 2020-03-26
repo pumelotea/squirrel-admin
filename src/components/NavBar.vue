@@ -1,7 +1,9 @@
 <template>
   <div class="nav-bar-container">
     <div class="nav-wrap">
-      <div style="color: #bdbdbd" v-if="navList.length===0">点击左侧菜单打开页面</div>
+      <div style="color: #bdbdbd" v-if="navList.length === 0">
+        点击左侧菜单打开页面
+      </div>
       <el-tabs
         v-model="activeTab"
         type="card"

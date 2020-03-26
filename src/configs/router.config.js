@@ -115,7 +115,7 @@ router.beforeEach((to, from, next) => {
 
     //还原激活状态
     let node = store.state.tabNameMappings[to.path]
-    if(node){
+    if (node) {
       //菜单部分状态还原
       let tab = {
         name: node.name,

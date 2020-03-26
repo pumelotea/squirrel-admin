@@ -1,13 +1,13 @@
 <template>
   <PageLayout>
     <el-input v-model="aaa"></el-input>
-    <pre>{{list}}</pre>
+    <pre>{{ list }}</pre>
   </PageLayout>
 </template>
 
 <script>
 import PageLayout from '../../layouts/PageLayout'
-import {forEachMenuTree} from "../../utils/router-util";
+import { forEachMenuTree } from '../../utils/router-util'
 
 export default {
   name: 'index',
@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      aaa:'',
+      aaa: '',
       list: [
         {
           name: '看板',
@@ -106,7 +106,6 @@ export default {
   },
   mounted() {
     // forEachMenuTree(this.list)
-
   }
 }
 </script>
