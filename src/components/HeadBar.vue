@@ -4,10 +4,11 @@
       class="logo"
       :class="{
         'collapse-width-menu': isCollapse,
-        'uncollapse-width-menu': !isCollapse
+        'uncollapse-width-menu': !isCollapse,
+        'brand-collapse': isCollapse
       }"
     >
-      <span style="color: #6fbfff;font-weight: bold">LT</span>
+      <span :class="{ brand: !isCollapse }">LT</span>
       <span v-if="!isCollapse">Admin</span>
     </div>
     <div class="actions">
@@ -22,9 +23,15 @@
     </div>
     <div class="space"></div>
     <div class="actions">
-      <el-link class="action-item" :underline="false"><i class="el-icon-chat-dot-square"></i></el-link>
-      <el-link class="action-item" :underline="false"><i class="el-icon-picture"></i></el-link>
-      <el-link class="action-item" :underline="false"><i class="el-icon-setting"></i></el-link>
+      <el-link class="action-item" :underline="false"
+        ><i class="el-icon-chat-dot-square"></i
+      ></el-link>
+      <el-link class="action-item" :underline="false"
+        ><i class="el-icon-picture"></i
+      ></el-link>
+      <el-link class="action-item" :underline="false"
+        ><i class="el-icon-setting"></i
+      ></el-link>
       <div class="action-item">
         <el-dropdown trigger="click">
           <span class="el-dropdown-links">
@@ -105,5 +112,16 @@ export default {
 .uncollapse-width-menu {
   width: 220px;
   transition: all 0.2s ease-in-out;
+}
+
+.brand {
+  color: #6fbfff;
+  font-weight: bold;
+}
+
+.brand-collapse {
+  color: white !important;
+  background: #6fbfff;
+  font-weight: bold;
 }
 </style>
