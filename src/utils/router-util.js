@@ -11,7 +11,7 @@ export function forEachMenuTree(menuTree) {
         pNode = {
           routerPath: '',
           menuPath: [],
-          breadcrumb:[],
+          breadcrumb: []
         }
       }
 

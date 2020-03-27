@@ -23,11 +23,9 @@
     </div>
     <div class="space"></div>
     <div class="actions">
-      <el-link class="action-item" :underline="false"
-        >
-        <el-badge :value="99" class="item">
-          <i class="el-icon-chat-dot-square"></i>
-        </el-badge></el-link>
+      <el-link class="action-item" :underline="false">
+        <message-box />
+      </el-link>
       <el-link class="action-item" :underline="false"
         ><i class="el-icon-picture"></i
       ></el-link>
@@ -56,8 +54,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import MessageBox from './MessageBox'
 export default {
   name: 'HeadBar',
+  components: { MessageBox },
   computed: {
     ...mapGetters(['isCollapse'])
   }
