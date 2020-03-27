@@ -16,8 +16,16 @@ router.beforeEach((to, from, next) => {
         children: []
       },
       {
+        name: '松鼠乐园',
+        path: '/squirrelzoo',
+        view: '/squirrelzoo',
+        isRouter: true,
+        isKeepalive: true,
+        children: []
+      },
+      {
         name: '用户',
-        path: '/user-mgt', //TODO  这个路径要拼接进实际的路由 //如果父节点为空，那么久产生一个临时的
+        path: '/user-mgt',
         view: '',
         isRouter: false,
         isKeepalive: false,

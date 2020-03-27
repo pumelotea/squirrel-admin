@@ -10,7 +10,7 @@
     </el-badge>
 
     <div style="max-height: 400px;overflow: auto">
-      <el-card shadow="never" v-for="e in 20">
+      <el-card shadow="never" v-for="e in 20" style="margin-bottom: 5px">
         从不显示
       </el-card>
     </div>
