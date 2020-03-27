@@ -21,6 +21,7 @@
       </div>
     </template>
     <div class="drawer-container">
+
       <div class="drawer-body">
         <slot></slot>
       </div>
@@ -28,6 +29,7 @@
         <slot name="actions"></slot>
       </div>
     </div>
+
   </el-drawer>
 </template>
 

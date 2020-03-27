@@ -8,8 +8,8 @@ import '@/configs/router.config'
 import ElementUI from 'element-ui'
 import './components'
 import 'element-ui/lib/theme-chalk/index.css'
-Vue.use(ElementUI)
 
+Vue.use(ElementUI)
 Vue.use(HttpApi)
 
 // 开启vconsole

@@ -10,7 +10,9 @@
     "build-prod": "vue-cli-service build --mode prod --dest=dist-prod",
     "build-test": "vue-cli-service build --mode test --dest=dist-test"
   },
-  "pre-commit": ["lint"],
+  "pre-commit": [
+    "lint"
+  ],
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.4",

@@ -1,5 +1,7 @@
 <template>
   <div class="menu-list-container">
+    <GeminiScrollbar>
+
     <el-menu
       style="flex: 1;"
       :default-active="activeMenu[activeMenu.length - 1]"
@@ -24,6 +26,8 @@
         </el-submenu>
       </template>
     </el-menu>
+    </GeminiScrollbar>
+
     <div class="copyright" v-if="!isCollapse">力通科技提供技术支持</div>
   </div>
 </template>
