@@ -21,7 +21,6 @@
       </div>
     </template>
     <div class="drawer-container">
-
       <div class="drawer-body">
         <slot></slot>
       </div>
@@ -29,7 +28,6 @@
         <slot name="actions"></slot>
       </div>
     </div>
-
   </el-drawer>
 </template>
 
@@ -76,12 +74,12 @@ export default {
   outline: none !important;
 }
 
- .drawer-layout #el-drawer__title{
-   margin: 0;
-   padding: 20px;
-   border-bottom: 1px solid rgba(94, 94, 94, 0.2);
-   z-index: 1;
-  }
+.drawer-layout #el-drawer__title {
+  margin: 0;
+  padding: 20px;
+  border-bottom: 1px solid rgba(94, 94, 94, 0.2);
+  z-index: 1;
+}
 </style>
 
 <style scoped>
