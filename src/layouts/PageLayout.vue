@@ -18,9 +18,14 @@
       <slot name="actions">
       </slot>
     </div>
+
     <div class="content">
       <slot></slot>
     </div>
+    <div class="pagination">
+      <slot name="pagination"></slot>
+    </div>
+    <el-backtop target=".page-container"></el-backtop>
   </div>
 </template>
 
@@ -49,18 +54,23 @@ export default {
 }
 
 .breadcrumb {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .alerts{
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .actions {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .content {
-  margin-top: 10px;
+  margin-top: 15px;
 }
+
+  .pagination{
+    text-align: center;
+    padding: 15px;
+  }
 </style>

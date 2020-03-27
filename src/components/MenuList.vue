@@ -20,11 +20,11 @@
             <i class="el-icon-location"></i>
             <span slot="title">{{ e.name }}</span>
           </template>
-          <MenuContent v-for="a in e.children" :data="a" />
+          <MenuContent v-for="a in e.children" :data="a" :key="a.routerPath"/>
         </el-submenu>
       </template>
     </el-menu>
-    <div class="copyright">力通科技提供技术支持</div>
+    <div class="copyright" v-if="!isCollapse">力通科技提供技术支持</div>
   </div>
 </template>
 
@@ -92,13 +92,13 @@ export default {
   flex-direction: column;
 }
 
-  .copyright{
-    font-size: 12px;
-    color: rgba(94, 94, 94, 0.4);
-    text-align: center;
-    word-break: break-all;
-    padding: 10px;
-  }
+.copyright {
+  font-size: 12px;
+  color: rgba(94, 94, 94, 0.4);
+  text-align: center;
+  word-break: break-all;
+  padding: 10px;
+}
 </style>
 
 <style>

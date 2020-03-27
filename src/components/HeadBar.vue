@@ -24,8 +24,10 @@
     <div class="space"></div>
     <div class="actions">
       <el-link class="action-item" :underline="false"
-        ><i class="el-icon-chat-dot-square"></i
-      ></el-link>
+        >
+        <el-badge :value="99" class="item">
+          <i class="el-icon-chat-dot-square"></i>
+        </el-badge></el-link>
       <el-link class="action-item" :underline="false"
         ><i class="el-icon-picture"></i
       ></el-link>
