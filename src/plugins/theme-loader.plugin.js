@@ -5,10 +5,10 @@ export default {
   getThemeList() {
     return window.themes
   },
-  getActiveTheme(){
+  getActiveTheme() {
     return localStorage.getItem('theme')
   },
-  unsetActiveTheme(){
+  unsetActiveTheme() {
     let link = document.getElementById('_theme')
     localStorage.removeItem('theme')
     if (link) {
@@ -25,7 +25,7 @@ export default {
     }
     link.href = `./themes/${name}.css`
     document.getElementsByTagName('head')[0].appendChild(link)
-    localStorage.setItem('theme',name)
+    localStorage.setItem('theme', name)
   },
   loadUserSettings() {
     let themeName = localStorage.getItem('theme')

@@ -63,12 +63,9 @@ export default {
     },
     change(index, value) {
       if (!value) {
-        console.log('关闭', index)
         this.$themeLoader.unsetActiveTheme()
         return
       }
-
-      console.log('打开', index)
       this.activeValues = this.activeValues.map((e, i) => {
         if (i !== index) {
           return false
