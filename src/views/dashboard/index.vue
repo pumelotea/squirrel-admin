@@ -41,7 +41,7 @@
           <el-button type="primary" size="medium" @click="drawer = true"
             >新增</el-button
           >
-          <el-button type="primary" size="medium">导出</el-button>
+          <el-button type="primary" size="medium" @click="theme">导出</el-button>
         </el-col>
       </el-row>
     </template>
@@ -341,9 +341,13 @@ export default {
     handleClick(row) {
       console.log(row)
       this.drawer = true
+    },
+    theme(){
+
     }
   },
-  mounted() {}
+  mounted() {
+  }
 }
 </script>
 

@@ -80,7 +80,17 @@ export default new Vuex.Store({
             isKeepalive: e.isKeepalive
           }
         }
-        registedRouters[0].children.push(route)
+        const homeRoute = registedRouters.filter(e => {
+          return e.home
+        })
+
+        if (homeRoute.length === 0) {
+          throw Error(
+            "Not Found Home Router in routes, please set one's home to true"
+          )
+        }
+
+        homeRoute[0].children.push(route)
         // console.log(route)
       })
       router.addRoutes(registedRouters)

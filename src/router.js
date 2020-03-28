@@ -13,9 +13,15 @@ Router.prototype.push = function push(location, onResolve, onReject) {
 export default new Router({
   routes: [
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/login')
+    },
+    {
       path: '/',
       name: 'home',
-      component: () => import('@/views/home/index.vue'),
+      home: true,
+      component: () => import('@/views/home'),
       children: [
         // {
         //   name: '看板',

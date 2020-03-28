@@ -8,9 +8,13 @@ import '@/configs/router.config'
 import ElementUI from 'element-ui'
 import './components'
 import 'element-ui/lib/theme-chalk/index.css'
-
+import ThemeLoader from '@/plugins/theme-loader.plugin'
 Vue.use(ElementUI)
 Vue.use(HttpApi)
+Vue.use(ThemeLoader)
+
+//加载用户设置参数
+ThemeLoader.loadUserSettings()
 
 // 开启vconsole
 // if (process.env.NODE_ENV !== 'production') {

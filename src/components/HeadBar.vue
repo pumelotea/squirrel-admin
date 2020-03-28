@@ -26,12 +26,12 @@
       <el-link class="action-item" :underline="false">
         <message-box />
       </el-link>
-      <el-link class="action-item" :underline="false"
-        ><i class="el-icon-picture"></i
+      <el-link class="action-item" :underline="false">
+        <i class="el-icon-picture"></i
       ></el-link>
-      <el-link class="action-item" :underline="false"
-        ><i class="el-icon-setting"></i
-      ></el-link>
+      <el-link class="action-item" :underline="false">
+        <theme-box/>
+      </el-link>
       <div class="action-item">
         <el-dropdown trigger="click">
           <span class="el-dropdown-links">
@@ -44,7 +44,7 @@
             <el-dropdown-item>修改信息</el-dropdown-item>
             <el-dropdown-item>修改密码</el-dropdown-item>
             <el-dropdown-item disabled>改绑手机</el-dropdown-item>
-            <el-dropdown-item divided>退出系统</el-dropdown-item>
+            <el-dropdown-item divided @click.native="logout">退出系统</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -55,11 +55,17 @@
 <script>
 import { mapGetters } from 'vuex'
 import MessageBox from './MessageBox'
+import ThemeBox from './ThemeBox'
 export default {
   name: 'HeadBar',
-  components: { MessageBox },
+  components: { MessageBox,ThemeBox },
   computed: {
     ...mapGetters(['isCollapse'])
+  },
+  methods:{
+    logout(){
+      this.$router.push('/login')
+    }
   }
 }
 </script>
