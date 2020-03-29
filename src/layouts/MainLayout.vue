@@ -24,17 +24,31 @@
     >
       <slot name="content"></slot>
     </div>
+    <screen-locker v-model="lockScreen" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-
+import ScreenLocker from '@/components/ScreenLocker'
+import Store from '@/store'
 export default {
   name: 'MainLayout',
+  components: {
+    ScreenLocker
+  },
   computed: {
-    ...mapGetters(['isCollapse'])
-  }
+    ...mapGetters(['isCollapse']),
+    lockScreen: {
+      get: () => {
+        return Store.getters.screenLocked
+      },
+      set: val => {
+        Store.commit('setScreenLock', val)
+      }
+    }
+  },
+  mounted() {}
 }
 </script>
 

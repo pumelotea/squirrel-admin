@@ -20,7 +20,9 @@ export default new Vuex.Store({
     //menu-path
     activeMenu: [],
     //菜单折叠状态
-    isCollapse: false
+    isCollapse: false,
+    //锁屏状态
+    screenLocked: false
   },
   mutations: {
     pushNav(state, payload) {
@@ -103,6 +105,9 @@ export default new Vuex.Store({
     },
     toggleIsCollapse(state) {
       state.isCollapse = !state.isCollapse
+    },
+    setScreenLock(state, status) {
+      state.screenLocked = status
     }
   },
   actions: {},
@@ -136,6 +141,9 @@ export default new Vuex.Store({
     },
     isCollapse(state) {
       return state.isCollapse
+    },
+    screenLocked(state) {
+      return state.screenLocked
     }
   },
   modules: {}

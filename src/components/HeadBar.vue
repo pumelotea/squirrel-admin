@@ -23,6 +23,9 @@
     </div>
     <div class="space"></div>
     <div class="actions">
+      <el-link class="action-item" :underline="false" @click="$store.commit('setScreenLock',true)">
+        <i class="el-icon-lock"></i
+        ></el-link>
       <el-link class="action-item" :underline="false">
         <message-box />
       </el-link>
