@@ -21,14 +21,20 @@ export function forEachMenuTree(menuTree) {
       tree[i]['menuPath'] = [...pNode['menuPath'], tree[i]['menuId']]
       //breadcrumb
       tree[i]['breadcrumb'] = [...pNode['breadcrumb'], tree[i]]
+      //可控按钮
+      tree[i]['buttons'] = []
 
-      if (tree[i].isRouter === false) {
-        forEachTree(tree[i].children, tree[i])
-      } else {
-        routerList.push(tree[i])
-        if (tree[i].routerPath) {
-          //路由路径映射路由节点
-          tabNameMappings[tree[i].routerPath] = tree[i]
+      if(tree[i].type==='menu'){
+        if (tree[i].isRouter === false) {
+          forEachTree(tree[i].children, tree[i])
+        } else {
+          routerList.push(tree[i])
+          if (tree[i].routerPath) {
+            //路由路径映射路由节点
+            tabNameMappings[tree[i].routerPath] = tree[i]
+          }
+          //收集按钮
+          tree[i]['buttons'].push(...tree[i].children)
         }
       }
     }

@@ -13,7 +13,39 @@ router.beforeEach((to, from, next) => {
         view: '/dashboard',
         isRouter: true,
         isKeepalive: true,
-        children: []
+        type: 'menu',
+        children: [
+          {
+            name: '重置',
+            permissionKey: 'reset',
+            path: '',
+            view: '',
+            isRouter: false,
+            isKeepalive: false,
+            type: 'button',
+            children: []
+          },
+          {
+            name: '新增',
+            permissionKey: 'add',
+            path: '',
+            view: '',
+            isRouter: false,
+            isKeepalive: false,
+            type: 'button',
+            children: []
+          },
+          {
+            name: '编辑',
+            permissionKey: 'edit',
+            path: '',
+            view: '',
+            isRouter: false,
+            isKeepalive: false,
+            type: 'button',
+            children: []
+          }
+        ]
       },
       {
         name: '松鼠乐园',
@@ -21,6 +53,7 @@ router.beforeEach((to, from, next) => {
         view: '/squirrelzoo',
         isRouter: true,
         isKeepalive: true,
+        type: 'menu',
         children: []
       },
       {
@@ -29,6 +62,7 @@ router.beforeEach((to, from, next) => {
         view: '',
         isRouter: false,
         isKeepalive: false,
+        type: 'menu',
         children: [
           {
             name: '高级管理',
@@ -36,6 +70,7 @@ router.beforeEach((to, from, next) => {
             view: '',
             isRouter: false,
             isKeepalive: false,
+            type: 'menu',
             children: [
               {
                 name: '高级111',
@@ -43,6 +78,7 @@ router.beforeEach((to, from, next) => {
                 view: '/role',
                 isRouter: true,
                 isKeepalive: false,
+                type: 'menu',
                 children: []
               }
             ]
@@ -53,6 +89,7 @@ router.beforeEach((to, from, next) => {
             view: '/role',
             isRouter: true,
             isKeepalive: false,
+            type: 'menu',
             children: []
           },
           {
@@ -61,6 +98,7 @@ router.beforeEach((to, from, next) => {
             view: '/menu',
             isRouter: true,
             isKeepalive: false,
+            type: 'menu',
             children: []
           },
           {
@@ -69,6 +107,7 @@ router.beforeEach((to, from, next) => {
             view: '/user',
             isRouter: true,
             isKeepalive: false,
+            type: 'menu',
             children: []
           }
         ]
@@ -79,6 +118,7 @@ router.beforeEach((to, from, next) => {
         view: '',
         isRouter: false,
         isKeepalive: false,
+        type: 'menu',
         children: [
           {
             name: '测试项目组',
@@ -86,6 +126,7 @@ router.beforeEach((to, from, next) => {
             view: '/role',
             isRouter: true,
             isKeepalive: false,
+            type: 'menu',
             children: []
           }
         ]
@@ -96,6 +137,7 @@ router.beforeEach((to, from, next) => {
         view: '/department',
         isRouter: true,
         isKeepalive: false,
+        type: 'menu',
         children: []
       },
       {
@@ -104,6 +146,7 @@ router.beforeEach((to, from, next) => {
         view: '/department',
         isRouter: false,
         isKeepalive: false,
+        type: 'menu',
         children: []
       }
     ]
@@ -129,7 +172,8 @@ router.beforeEach((to, from, next) => {
         name: node.name,
         path: node.routerPath,
         menuPath: JSON.parse(JSON.stringify(node.menuPath)),
-        breadcrumb: node.breadcrumb
+        breadcrumb: node.breadcrumb,
+        buttons: node.buttons
       }
 
       store.commit('setActiveRoute', tab)

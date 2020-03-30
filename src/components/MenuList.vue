@@ -64,7 +64,8 @@ export default {
         name: this.tabNameMappings[node.routerPath].name,
         path: node.routerPath,
         menuPath: JSON.parse(JSON.stringify(indexPath)),
-        breadcrumb: node.breadcrumb
+        breadcrumb: node.breadcrumb,
+        buttons:node.buttons
       }
 
       // console.log(tab)
