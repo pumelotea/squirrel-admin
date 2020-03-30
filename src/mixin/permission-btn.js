@@ -22,9 +22,10 @@ const permissionBtnMixin = {
       this.permissionButtons____[e.permissionKey] = e
     })
 
-    document.getElementById('app').addEventListener(
+    document.addEventListener(
       'DOMNodeInserted',
       e => {
+
         if (e.target.querySelectorAll) {
           let nodeList = e.target.querySelectorAll('[permission-btn-key]')
           this.__updatePermissionButtonsInserted(nodeList)

@@ -44,7 +44,17 @@ router.beforeEach((to, from, next) => {
             isKeepalive: false,
             type: 'button',
             children: []
-          }
+          },
+          // {
+          //   name: '编辑弹出框取消',
+          //   permissionKey: 'cancel',
+          //   path: '',
+          //   view: '',
+          //   isRouter: false,
+          //   isKeepalive: false,
+          //   type: 'button',
+          //   children: []
+          // }
         ]
       },
       {

@@ -206,7 +206,7 @@
         </el-form-item>
       </el-form>
       <template #actions>
-        <el-button>取消</el-button>
+        <el-button permission-btn-key="cancel">取消</el-button>
         <el-button type="primary">确认</el-button>
       </template>
     </drawer-layout>
