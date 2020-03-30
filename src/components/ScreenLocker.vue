@@ -1,34 +1,42 @@
 <template>
-  <div class="screen-lock-container" v-if="locked">
-    <div class="content">
-      <div class="info-item">
-        <el-avatar
-          :size="80"
-          src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-        ></el-avatar>
-      </div>
-      <div class="info-item nick">
-        PUMELOTEA
-      </div>
-      <div class="info-item tip">
-        您的登录状态过期
-      </div>
-      <div class="info-item password">
-        <el-input
-          v-model="password"
-          type="password"
-          clearable
-          placeholder="登录密码"
-          @keydown.enter.native="enter"
-        ></el-input>
-      </div>
+  <transition enter-active-class="lock" leave-active-class="unlock">
+    <div class="screen-lock-container " v-if="locked">
+      <div class="filtered"></div>
 
-      <div class="info-item" style="justify-content: left;">
-        <el-link :underline="false" style="margin-right: 5px">重新登录</el-link>
-        <el-link :underline="false" style="margin-right: 5px">忘记密码</el-link>
+      <div class="content">
+        <div class="info-item">
+          <el-avatar
+            :size="80"
+            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+          ></el-avatar>
+        </div>
+        <div class="info-item nick">
+          PUMELOTEA
+        </div>
+        <div class="info-item tip">
+          您的登录状态过期
+        </div>
+        <div class="info-item password">
+          <el-input
+            v-model="password"
+            type="password"
+            clearable
+            placeholder="登录密码"
+            @keydown.enter.native="enter"
+          ></el-input>
+        </div>
+
+        <div class="info-item" style="justify-content: left;">
+          <el-link :underline="false" style="margin-right: 5px"
+            >重新登录</el-link
+          >
+          <el-link :underline="false" style="margin-right: 5px"
+            >忘记密码</el-link
+          >
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -109,12 +117,12 @@ export default {
   display: flex;
 }
 
-.lock{
-
+.lock {
+  animation: lock-down 1s ease-in-out;
 }
 
-.unlock{
-
+.unlock {
+  animation: lock-up 1s ease-in-out;
 }
 
 .content {
@@ -140,5 +148,37 @@ export default {
 
 .password {
   margin-top: 20px;
+}
+
+@keyframes lock-down {
+  0% {
+    transform: translate3d(0, -3000px, 0);
+  }
+  60% {
+    /*  opacity: 1;*/
+    transform: translate3d(0, 25px, 0);
+  }
+  75% {
+    transform: translate3d(0px, 0, 0);
+  }
+  90% {
+    transform: translate3d(0px, 0, 0);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes lock-up {
+  0% {
+    transform: translate3d(0, 0px, 0);
+  }
+  90% {
+    transform: translate3d(0px, -3000px, 0);
+  }
+  100% {
+    transform: none;
+    opacity: 0;
+  }
 }
 </style>
