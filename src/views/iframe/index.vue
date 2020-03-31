@@ -7,7 +7,7 @@ export default {
   name: 'index',
   computed:{
     url(){
-      return this.$route.query.url
+      return this.$route.meta.externalLinkAddress || ''
     }
   }
 }

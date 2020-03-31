@@ -58,52 +58,62 @@ router.beforeEach((to, from, next) => {
         ]
       },
       {
-        name: '松鼠乐园外部1',
-        path: '',
+        name: '外部链接',
+        path: '/links',
         view: '',
-        isRouter: true,
-        isKeepalive: true,
-        externalLink: true, //外链
-        linkTarget: '_self', //刷新自己
-        externalLinkAddress: 'http://www.squirrelzoo.com',
+        isRouter: false,
+        isKeepalive: false,
         type: 'menu',
-        children: []
-      },
-      {
-        name: '松鼠乐园外部2',
-        path: '',
-        view: '',
-        isRouter: true,
-        isKeepalive: true,
-        externalLink: true, //外链
-        externalLinkAddress: 'http://www.squirrelzoo.com',
-        linkTarget: '_blank', //浏览器标签
-        type: 'menu',
-        children: []
-      },
-      {
-        name: '松鼠乐园内部',
-        path: '/squirrelzoo',
-        view: '/iframe',
-        isRouter: true,
-        isKeepalive: true,
-        externalLink: true, //外链
-        externalLinkAddress: 'http://www.squirrelzoo.com',
-        linkTarget: '_tab', //页内标签
-        type: 'menu',
-        children: []
-      },
-      {
-        name: '百度内部',
-        path: '/baidu',
-        view: '/iframe',
-        isRouter: true,
-        isKeepalive: true,
-        externalLink: true, //外链
-        externalLinkAddress: 'http://www.baidu.com',
-        linkTarget: '_tab', //页内标签
-        type: 'menu',
-        children: []
+        children: [
+          {
+            name: '松鼠乐园外部1',
+            path: '',
+            view: '',
+            isRouter: true,
+            isKeepalive: true,
+            externalLink: true, //外链
+            linkTarget: '_self', //刷新自己
+            externalLinkAddress: 'http://www.squirrelzoo.com',
+            type: 'menu',
+            children: []
+          },
+          {
+            name: '松鼠乐园外部2',
+            path: '',
+            view: '',
+            isRouter: true,
+            isKeepalive: true,
+            externalLink: true, //外链
+            externalLinkAddress: 'http://www.squirrelzoo.com',
+            linkTarget: '_blank', //浏览器标签
+            type: 'menu',
+            children: []
+          },
+          {
+            name: '松鼠乐园内部',
+            path: '/squirrelzoo',
+            view: '/iframe',
+            isRouter: true,
+            isKeepalive: true,
+            externalLink: true, //外链
+            externalLinkAddress: 'http://www.squirrelzoo.com',
+            linkTarget: '_tab', //页内标签
+            type: 'menu',
+            children: []
+          },
+          {
+            name: '百度内部',
+            path: '/baidu',
+            view: '/iframe',
+            isRouter: true,
+            isKeepalive: true,
+            externalLink: true, //外链
+            externalLinkAddress: 'http://www.baidu.com',
+            linkTarget: '_tab', //页内标签
+            type: 'menu',
+            children: []
+          }
+        ]
       },
       {
         name: '用户',

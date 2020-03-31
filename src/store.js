@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     isRouterInit: false,
-    isReload:true,
+    isReload: true,
     //tab导航栏数据存储
     navList: [],
     //激活的路由
@@ -81,7 +81,8 @@ export default new Vuex.Store({
           component: () => import(`@/views${e.view}`),
           meta: {
             isKeepalive: e.isKeepalive,
-            menuId:e.menuId
+            menuId: e.menuId,
+            externalLinkAddress: e.externalLinkAddress
           }
         }
         const homeRoute = registedRouters.filter(e => {

@@ -20,7 +20,7 @@
             <i class="el-icon-location"></i>
             <span slot="title">{{ e.name }}</span>
           </template>
-          <MenuContent v-for="a in e.children" :data="a" :key="a.routerPath" />
+          <MenuContent v-for="a in e.children" :data="a" :key="a.menuId" />
         </el-submenu>
       </template>
     </el-menu>
@@ -56,7 +56,6 @@ export default {
   methods: {
     goto(menuId, indexPath) {
       let node = findMenuByMenuId(this.menuTree, menuId)
-      console.log(node)
       //尝试创建tab
 
       let tab = {
@@ -77,9 +76,6 @@ export default {
         if (node.linkTarget === '_self') {
           window.open(node.externalLinkAddress, '_self')
           return
-        }
-        if (node.linkTarget === '_tab') {
-          tab.path = `${tab.path}?url=${node.externalLinkAddress}`
         }
       }
 
