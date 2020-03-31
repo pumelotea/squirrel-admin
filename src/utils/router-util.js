@@ -23,17 +23,23 @@ export function forEachMenuTree(menuTree) {
       tree[i]['breadcrumb'] = [...pNode['breadcrumb'], tree[i]]
       //可控按钮
       tree[i]['buttons'] = []
+      tree[i]['buttonsMap'] = {}
+
       tabNameMappings[tree[i].menuId] = tree[i]
 
-      if(tree[i].type==='menu'){
+      if (tree[i].type === 'menu') {
         if (tree[i].isRouter === false) {
           forEachTree(tree[i].children, tree[i])
         } else {
           //收集按钮
           tree[i]['buttons'].push(...tree[i].children)
-
-          if((!tree[i].externalLink)  ||
-            (tree[i].externalLink && tree[i].linkTarget === '_tab')){
+          tree[i].children.forEach(e => {
+            tree[i]['buttonsMap'][e.permissionKey] = e
+          })
+          if (
+            !tree[i].externalLink ||
+            (tree[i].externalLink && tree[i].linkTarget === '_tab')
+          ) {
             routerList.push(tree[i])
           }
         }

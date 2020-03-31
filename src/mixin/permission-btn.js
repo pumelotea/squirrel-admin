@@ -1,38 +1,35 @@
-import Store from '@/store'
-
+import { mapGetters } from 'vuex'
 const permissionBtnMixin = {
-  data() {
-    return {
-      permissionButtons____: {}
-    }
+  computed: {
+    ...mapGetters(['activeRoute'])
   },
   methods: {
-    __updatePermissionButtonsInserted(doms) {
-      doms.forEach(e => {
+    __updatePermissionButtonsInserted(domList) {
+      domList.forEach(e => {
         let pbk = e.getAttribute('permission-btn-key')
-        if (this.permissionButtons____[pbk] == null) {
+        if (this.activeRoute['buttonsMap'][pbk] == null) {
           e.style.display = 'none'
         }
       })
+    },
+    __dOMNodeInserted(e) {
+      if (e.target.querySelectorAll) {
+        let nodeList = e.target.querySelectorAll('[permission-btn-key]')
+        this.__updatePermissionButtonsInserted(nodeList)
+      }
     }
   },
   beforeMount() {
-    let activeRoute = Store.state.activeRoute
-    activeRoute.buttons.forEach(e => {
-      this.permissionButtons____[e.permissionKey] = e
-    })
-
-    document.addEventListener(
-      'DOMNodeInserted',
-      e => {
-
-        if (e.target.querySelectorAll) {
-          let nodeList = e.target.querySelectorAll('[permission-btn-key]')
-          this.__updatePermissionButtonsInserted(nodeList)
-        }
-      },
-      false
-    )
+    document.addEventListener('DOMNodeInserted', this.__dOMNodeInserted, false)
+  },
+  activated() {
+    document.addEventListener('DOMNodeInserted', this.__dOMNodeInserted, false)
+  },
+  beforeDestroy() {
+    document.removeEventListener('DOMNodeInserted', this.__dOMNodeInserted)
+  },
+  deactivated() {
+    document.removeEventListener('DOMNodeInserted', this.__dOMNodeInserted)
   }
 }
 

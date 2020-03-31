@@ -147,9 +147,30 @@ router.beforeEach((to, from, next) => {
             path: '/role',
             view: '/role',
             isRouter: true,
-            isKeepalive: false,
+            isKeepalive: true,
             type: 'menu',
-            children: []
+            children: [
+              {
+                name: '新增',
+                permissionKey: 'add',
+                path: '',
+                view: '',
+                isRouter: false,
+                isKeepalive: false,
+                type: 'button',
+                children: []
+              },
+              {
+                name: '编辑弹出框取消',
+                permissionKey: 'cancel',
+                path: '',
+                view: '',
+                isRouter: false,
+                isKeepalive: false,
+                type: 'button',
+                children: []
+              }
+            ]
           },
           {
             name: '菜单管理',
@@ -237,7 +258,8 @@ router.beforeEach((to, from, next) => {
           path: node.routerPath,
           menuPath: JSON.parse(JSON.stringify(node.menuPath)),
           breadcrumb: node.breadcrumb,
-          buttons: node.buttons
+          buttons: node.buttons,
+          buttonsMap: node.buttonsMap
         }
 
         store.commit('setActiveRoute', tab)

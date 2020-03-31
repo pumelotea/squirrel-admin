@@ -64,7 +64,8 @@ export default {
         path: node.routerPath,
         menuPath: JSON.parse(JSON.stringify(indexPath)),
         breadcrumb: node.breadcrumb,
-        buttons: node.buttons
+        buttons: node.buttons,
+        buttonsMap: node.buttonsMap
       }
 
       //优先处理外部链接
