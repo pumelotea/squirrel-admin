@@ -80,6 +80,7 @@ export default {
       app.style.top = ''
       app.style.bottom = ''
       app.style.pointerEvents = ''
+      localStorage.setItem('lock', '0')
     },
     lock() {
       let app = this.app
@@ -91,6 +92,7 @@ export default {
       app.style.top = '0'
       app.style.bottom = '0'
       app.style.pointerEvents = 'none'
+      localStorage.setItem('lock', '1')
     },
     enter() {
       this.unlock()
@@ -100,6 +102,12 @@ export default {
     this.locked = this.value
     document.body.appendChild(this.$el)
     if (this.value) {
+      this.lock()
+    }
+
+    //如果存在lock缓存，那么强制加锁，忽略参数
+    if(localStorage.getItem('lock') === '1'){
+      this.locked = true
       this.lock()
     }
   }
