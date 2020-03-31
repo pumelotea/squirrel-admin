@@ -17,6 +17,7 @@
           :label="item.name"
           :name="item.name"
           :path="item.path"
+          :menuId="item.menuId"
         >
         </el-tab-pane>
       </el-tabs>
@@ -66,7 +67,6 @@ export default {
   },
   methods: {
     handleTabsEdit(targetName, action) {
-      console.log(targetName)
 
       if ('remove' === action) {
         let index = this.navList.findIndex(e => {
@@ -94,9 +94,9 @@ export default {
         }
       }
     },
-    goto({ name, $attrs: { path } }) {
+    goto({ $attrs: { path, menuId } }) {
       let index = this.navList.findIndex(e => {
-        return e.name === name
+        return e.menuId === menuId
       })
 
       //设置激活路由

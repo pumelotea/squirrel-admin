@@ -17,10 +17,11 @@ export default new Router({
       name: 'login',
       component: () => import('@/views/login')
     },
+
     {
       path: '/',
       name: 'home',
-      home: true,
+      home: true, //主页标记
       component: () => import('@/views/home'),
       children: [
         // {

@@ -34,7 +34,7 @@ import { mapGetters } from 'vuex'
 import permissionBtnMixin from '@/mixin/permission-btn'
 export default {
   name: 'PageLayout',
-  mixins: [permissionBtnMixin],
+  // mixins: [permissionBtnMixin],
   computed: {
     ...mapGetters(['activeRoute'])
   }

@@ -54,21 +54,34 @@ export default {
     ])
   },
   methods: {
-    goto(index, indexPath) {
-      // console.log(indexPath)
-
-      let node = findMenuByMenuId(this.menuTree, index)
-
+    goto(menuId, indexPath) {
+      let node = findMenuByMenuId(this.menuTree, menuId)
+      console.log(node)
       //尝试创建tab
+
       let tab = {
-        name: this.tabNameMappings[node.routerPath].name,
+        menuId: menuId,
+        name: node.name,
         path: node.routerPath,
         menuPath: JSON.parse(JSON.stringify(indexPath)),
         breadcrumb: node.breadcrumb,
-        buttons:node.buttons
+        buttons: node.buttons
       }
 
-      // console.log(tab)
+      //优先处理外部链接
+      if (node.externalLink) {
+        if (node.linkTarget === '_blank') {
+          window.open(node.externalLinkAddress, '_blank')
+          return
+        }
+        if (node.linkTarget === '_self') {
+          window.open(node.externalLinkAddress, '_self')
+          return
+        }
+        if (node.linkTarget === '_tab') {
+          tab.path = `${tab.path}?url=${node.externalLinkAddress}`
+        }
+      }
 
       //判断是否打开过
       if (!this.isOpenedRoute(tab)) {
@@ -79,7 +92,7 @@ export default {
       this.$store.commit('setActiveRoute', tab)
       this.$store.commit('setActiveMenu', tab.menuPath)
       //跳转
-      this.$router.push(node.routerPath)
+      this.$router.push(tab.path)
     }
   },
   mounted() {}

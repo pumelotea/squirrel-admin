@@ -15,7 +15,7 @@
       <iframe
         class="main-iframe"
         frameborder="0"
-        src="https://www.squirrelzoo.com"
+        :src="url"
       ></iframe>
     </div>
   </div>
@@ -26,6 +26,9 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'PageIframeLayout',
   props: {
+    url:{
+      type:String
+    },
     noTitle: {
       type: Boolean,
       default: true

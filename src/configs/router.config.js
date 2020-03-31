@@ -44,7 +44,7 @@ router.beforeEach((to, from, next) => {
             isKeepalive: false,
             type: 'button',
             children: []
-          },
+          }
           // {
           //   name: '编辑弹出框取消',
           //   permissionKey: 'cancel',
@@ -58,11 +58,50 @@ router.beforeEach((to, from, next) => {
         ]
       },
       {
-        name: '松鼠乐园',
-        path: '/squirrelzoo',
-        view: '/squirrelzoo',
+        name: '松鼠乐园外部1',
+        path: '',
+        view: '',
         isRouter: true,
         isKeepalive: true,
+        externalLink: true, //外链
+        linkTarget: '_self', //刷新自己
+        externalLinkAddress: 'http://www.squirrelzoo.com',
+        type: 'menu',
+        children: []
+      },
+      {
+        name: '松鼠乐园外部2',
+        path: '',
+        view: '',
+        isRouter: true,
+        isKeepalive: true,
+        externalLink: true, //外链
+        externalLinkAddress: 'http://www.squirrelzoo.com',
+        linkTarget: '_blank', //浏览器标签
+        type: 'menu',
+        children: []
+      },
+      {
+        name: '松鼠乐园内部',
+        path: '/squirrelzoo',
+        view: '/iframe',
+        isRouter: true,
+        isKeepalive: true,
+        externalLink: true, //外链
+        externalLinkAddress: 'http://www.squirrelzoo.com',
+        linkTarget: '_tab', //页内标签
+        type: 'menu',
+        children: []
+      },
+      {
+        name: '百度内部',
+        path: '/baidu',
+        view: '/iframe',
+        isRouter: true,
+        isKeepalive: true,
+        externalLink: true, //外链
+        externalLinkAddress: 'http://www.baidu.com',
+        linkTarget: '_tab', //页内标签
         type: 'menu',
         children: []
       },
@@ -173,27 +212,31 @@ router.beforeEach((to, from, next) => {
       'background:#20a0ff ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
       'background:transparent'
     )
-
-    //还原激活状态
-    let node = store.state.tabNameMappings[to.path]
-    if (node) {
-      //菜单部分状态还原
-      let tab = {
-        name: node.name,
-        path: node.routerPath,
-        menuPath: JSON.parse(JSON.stringify(node.menuPath)),
-        breadcrumb: node.breadcrumb,
-        buttons: node.buttons
-      }
-
-      store.commit('setActiveRoute', tab)
-      store.commit('setActiveMenu', tab.menuPath)
-      //NavTab部分状态还原
-      store.commit('pushNav', tab)
-    }
-
     next(to)
   } else {
+    if (store.state.isReload) {
+      store.state.isReload = false
+      //还原激活状态
+      let menuId = to.meta['menuId'] || ''
+      let node = store.state.tabNameMappings[menuId]
+      if (node) {
+        //菜单部分状态还原
+        let tab = {
+          menuId: menuId,
+          name: node.name,
+          path: node.routerPath,
+          menuPath: JSON.parse(JSON.stringify(node.menuPath)),
+          breadcrumb: node.breadcrumb,
+          buttons: node.buttons
+        }
+
+        store.commit('setActiveRoute', tab)
+        store.commit('setActiveMenu', tab.menuPath)
+        //NavTab部分状态还原
+        store.commit('pushNav', tab)
+      }
+    }
+
     next()
   }
 })
