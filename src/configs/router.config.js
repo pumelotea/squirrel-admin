@@ -243,7 +243,7 @@ router.beforeEach((to, from, next) => {
       'background:#20a0ff ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
       'background:transparent'
     )
-    next(to)
+    next(to.path)
   } else {
     if (store.state.isReload) {
       store.state.isReload = false
@@ -268,7 +268,6 @@ router.beforeEach((to, from, next) => {
         store.commit('pushNav', tab)
       }
     }
-
     next()
   }
 })
