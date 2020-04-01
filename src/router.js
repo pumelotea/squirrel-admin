@@ -14,28 +14,23 @@ export default new Router({
   routes: [
     {
       path: '*',
-      name: '404',
       component: () => import('@/views/404')
     },
     {
       path: '/login',
-      name: 'login',
       component: () => import('@/views/login')
     },
 
     {
       path: '/403',
-      name: '403',
       component: () => import('@/views/403')
     },
     {
       path: '/500',
-      name: '500',
       component: () => import('@/views/500')
     },
     {
       path: '/',
-      name: 'home',
       home: true, //主页标记
       component: () => import('@/views/home'),
       children: [
