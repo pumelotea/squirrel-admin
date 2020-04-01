@@ -13,14 +13,24 @@ Router.prototype.push = function push(location, onResolve, onReject) {
 export default new Router({
   routes: [
     {
+      path: '*',
+      component: () => import('@/views/404')
+    },
+    {
       path: '/login',
-      name: 'login',
       component: () => import('@/views/login')
     },
 
     {
+      path: '/403',
+      component: () => import('@/views/403')
+    },
+    {
+      path: '/500',
+      component: () => import('@/views/500')
+    },
+    {
       path: '/',
-      name: 'home',
       home: true, //主页标记
       component: () => import('@/views/home'),
       children: [
