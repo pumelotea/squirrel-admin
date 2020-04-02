@@ -6,7 +6,7 @@
     trigger="hover"
   >
     <el-badge :value="99" class="item" slot="reference">
-      <i class="el-icon-chat-dot-square" ></i>
+      <i class="el-icon-chat-dot-square"></i>
     </el-badge>
 
     <div style="max-height: 400px;overflow: auto">
@@ -23,15 +23,15 @@
 </template>
 
 <script>
-  export default {
-    name: "MessageBox"
-  }
+export default {
+  name: 'MessageBox'
+}
 </script>
 
 <style scoped>
-  .more {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-  }
+.more {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
 </style>

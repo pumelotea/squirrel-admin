@@ -35,7 +35,6 @@ export default {
       return this.$route.meta.isKeepalive || false
     }
   },
-  mounted() {
-  }
+  mounted() {}
 }
 </script>

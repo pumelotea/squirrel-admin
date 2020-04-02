@@ -1,6 +1,6 @@
 import Vue from 'vue'
 export default {
-  install(vue){
+  install(vue) {
     vue.prototype.$bus = new Vue()
   }
 }

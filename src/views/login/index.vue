@@ -7,15 +7,32 @@
       <div class="login-actions">
         <div class="login-form-content">
           <div class="login-title">LTAdmin</div>
-          <div class="login-form-item"><el-input prefix-icon="el-icon-user" placeholder="用户名" clearable/></div>
-          <div class="login-form-item"><el-input prefix-icon="el-icon-lock" placeholder="密码" type="password" clearable/></div>
+          <div class="login-form-item">
+            <el-input
+              prefix-icon="el-icon-user"
+              placeholder="用户名"
+              clearable
+            />
+          </div>
+          <div class="login-form-item">
+            <el-input
+              prefix-icon="el-icon-lock"
+              placeholder="密码"
+              type="password"
+              clearable
+            />
+          </div>
           <div class="login-form-item">
             <div style="display: flex">
               <div style="flex: 1;margin-right: 5px">
-                <el-input prefix-icon="el-icon-key" placeholder="验证码" clearable/>
+                <el-input
+                  prefix-icon="el-icon-key"
+                  placeholder="验证码"
+                  clearable
+                />
               </div>
               <div>
-                <img style="height: 40px;width: 100px" src="images/code.png"/>
+                <img style="height: 40px;width: 100px" src="images/code.png" />
               </div>
             </div>
           </div>
@@ -23,10 +40,14 @@
             <el-checkbox>记住登录状态</el-checkbox>
           </div>
           <div class="login-form-item">
-            <el-button style="width: 100%" plain type="primary" @click="login">登录</el-button>
+            <el-button style="width: 100%" plain type="primary" @click="login"
+              >登录</el-button
+            >
           </div>
           <div class="login-form-item">
-            <el-link :underline="false" style="margin-right: 5px">忘记密码</el-link>
+            <el-link :underline="false" style="margin-right: 5px"
+              >忘记密码</el-link
+            >
             <el-link :underline="false">没有账号</el-link>
           </div>
         </div>
@@ -37,8 +58,8 @@
 
 <script>
 export default {
-  methods:{
-    login(){
+  methods: {
+    login() {
       this.$router.push('/')
     }
   }
@@ -84,18 +105,18 @@ export default {
   display: flex;
 }
 
-  .login-form-content{
-    margin: auto;
-    width: 60%;
-  }
+.login-form-content {
+  margin: auto;
+  width: 60%;
+}
 
-  .login-title{
-    font-size: 24px;
-    color: #5e5e5e;
-    margin-bottom: 30px;
-  }
+.login-title {
+  font-size: 24px;
+  color: #5e5e5e;
+  margin-bottom: 30px;
+}
 
-  .login-form-item{
-    margin-top: 10px;
-  }
+.login-form-item {
+  margin-top: 10px;
+}
 </style>

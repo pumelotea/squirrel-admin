@@ -25,23 +25,23 @@
     <div>
       <el-dropdown trigger="click">
         <span class="el-dropdown-link">
-          <el-button type="text" size="small"
-            ><i class="el-icon-error" style="font-size: 20px"></i
-          ></el-button>
+          <el-button type="text" size="small">
+            <i class="el-icon-error" style="font-size: 20px"></i>
+          </el-button>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item @click.native="closeTabs('all')"
-            >关闭全部</el-dropdown-item
-          >
-          <el-dropdown-item @click.native="closeTabs('left')"
-            >关闭左侧</el-dropdown-item
-          >
-          <el-dropdown-item @click.native="closeTabs('right')"
-            >关闭右侧</el-dropdown-item
-          >
-          <el-dropdown-item @click.native="closeTabs('other')"
-            >关闭其他</el-dropdown-item
-          >
+          <el-dropdown-item @click.native="closeTabs('all')">
+            关闭全部
+          </el-dropdown-item>
+          <el-dropdown-item @click.native="closeTabs('left')">
+            关闭左侧
+          </el-dropdown-item>
+          <el-dropdown-item @click.native="closeTabs('right')">
+            关闭右侧
+          </el-dropdown-item>
+          <el-dropdown-item @click.native="closeTabs('other')">
+            关闭其他
+          </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -67,7 +67,6 @@ export default {
   },
   methods: {
     handleTabsEdit(targetName, action) {
-
       if ('remove' === action) {
         let index = this.navList.findIndex(e => {
           return e.name === targetName

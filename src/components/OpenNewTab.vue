@@ -1,8 +1,6 @@
 <template>
   <el-tooltip class="item" effect="dark" placement="bottom">
-    <template #content>
-      <div class="link" @click="open">在浏览器新标签页打开</div>
-    </template>
+    <div slot="content" class="link" @click="open">在浏览器新标签页打开</div>
     <slot></slot>
   </el-tooltip>
 </template>
@@ -15,16 +13,22 @@ export default {
     }
   },
   name: 'OpenNewTab',
-  methods:{
-    open(){
+  methods: {
+    open() {
       const location = window.location
       const mode = this.$router.mode
-      if(mode === 'hash'){
-        window.open(`${location.protocol}//${location.host}${location.pathname}#${this.link}`,'blank')
+      if (mode === 'hash') {
+        window.open(
+          `${location.protocol}//${location.host}${location.pathname}#${this.link}`,
+          'blank'
+        )
       }
 
-      if(mode === 'history'){
-        window.open(`${location.protocol}//${location.host}${location.pathname}${this.link}`,'blank')
+      if (mode === 'history') {
+        window.open(
+          `${location.protocol}//${location.host}${location.pathname}${this.link}`,
+          'blank'
+        )
       }
     }
   }

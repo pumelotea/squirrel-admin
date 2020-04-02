@@ -23,8 +23,7 @@ export default new Vuex.Store({
     //菜单折叠状态
     isCollapse: false,
     //锁屏状态
-    screenLocked: false,
-
+    screenLocked: false
   },
   mutations: {
     pushNav(state, payload) {

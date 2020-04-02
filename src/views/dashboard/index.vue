@@ -82,7 +82,9 @@
             查看</el-button
           >
           <open-new-tab :link="'/dashboard?id=1'">
-            <el-button type="text" size="small" permission-btn-key="edit">编辑</el-button>
+            <el-button type="text" size="small" permission-btn-key="edit"
+              >编辑</el-button
+            >
           </open-new-tab>
         </template>
       </el-table-column>
@@ -389,8 +391,7 @@ export default {
       }, 1000)
     }
   },
-  mounted() {
-  }
+  mounted() {}
 }
 </script>
 
