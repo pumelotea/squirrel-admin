@@ -9,9 +9,13 @@ import ElementUI from 'element-ui'
 import './components'
 import 'element-ui/lib/theme-chalk/index.css'
 import ThemeLoader from '@/plugins/theme-loader.plugin'
+import cookies from 'jscookie'
+import EventBus from '@/utils/event-bus'
+Vue.prototype.$cookies = cookies
 Vue.use(ElementUI)
 Vue.use(HttpApi)
 Vue.use(ThemeLoader)
+Vue.use(EventBus)
 
 //加载用户设置参数
 ThemeLoader.loadUserSettings()
