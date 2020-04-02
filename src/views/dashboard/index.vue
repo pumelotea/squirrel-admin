@@ -388,6 +388,8 @@ export default {
         ]
       }, 1000)
     }
+  },
+  mounted() {
   }
 }
 </script>
