@@ -66,11 +66,16 @@ export default {
     }
   },
   methods: {
+    //FIXME tab组件必须是每个名称不一样
     handleTabsEdit(targetName, action) {
       if ('remove' === action) {
         let index = this.navList.findIndex(e => {
           return e.name === targetName
         })
+        //通知删除缓存
+        const menuId = this.navList[index].menuId
+        this.$bus.$emit('removeTab', menuId)
+
         //删除tab
         this.$store.commit('removeNav', index)
 
