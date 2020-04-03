@@ -22,6 +22,10 @@ import 'tinymce/plugins/contextmenu'
 import 'tinymce/plugins/wordcount'
 import 'tinymce/plugins/colorpicker'
 import 'tinymce/plugins/textcolor'
+import 'tinymce/plugins/link'
+import 'tinymce/plugins/fullscreen'
+import 'tinymce/plugins/fullpage'
+import 'tinymce/plugins/code'
 export default {
   components: {
     Editor
@@ -37,12 +41,16 @@ export default {
     },
     plugins: {
       type: [String, Array],
-      default: 'lists image media table textcolor wordcount contextmenu'
+      default:
+        'lists image media table textcolor wordcount contextmenu link code fullscreen fullpage'
     },
     toolbar: {
       type: [String, Array],
-      default:
-        'undo redo |  formatselect | fontselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | lists image media table | removeformat'
+      default: () => {
+        return [
+          'fullscreen undo redo   |  formatselect fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify  |subscript  superscript|link unlink| bullist numlist outdent indent |  lists image media table   | removeformat '
+        ]
+      }
     }
   },
   data() {
@@ -56,6 +64,7 @@ export default {
         plugins: this.plugins,
         toolbar: this.toolbar,
         branding: false,
+        // menubar: 'file edit insert view format table',
         menubar: false,
         //此处为图片上传处理函数，这个直接用了base64的图片形式上传图片，
         //如需ajax上传可参考https://www.tiny.cloud/docs/configure/file-image-upload/#images_upload_handler
