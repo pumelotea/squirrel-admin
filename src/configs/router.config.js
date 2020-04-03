@@ -12,7 +12,7 @@ router.beforeEach((to, from, next) => {
         path: '/dashboard',
         view: '/dashboard',
         isRouter: true,
-        isKeepalive: false,
+        isKeepalive: true,
         type: 'menu',
         children: [
           {
