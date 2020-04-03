@@ -26,6 +26,7 @@ import 'tinymce/plugins/link'
 import 'tinymce/plugins/fullscreen'
 import 'tinymce/plugins/fullpage'
 import 'tinymce/plugins/code'
+import 'tinymce/plugins/charmap'
 export default {
   components: {
     Editor
@@ -42,13 +43,13 @@ export default {
     plugins: {
       type: [String, Array],
       default:
-        'lists image media table textcolor wordcount contextmenu link code fullscreen fullpage'
+        'lists image media table textcolor wordcount contextmenu link code fullscreen fullpage charmap'
     },
     toolbar: {
       type: [String, Array],
       default: () => {
         return [
-          'fullscreen undo redo   |  formatselect fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify  |subscript  superscript|link unlink| bullist numlist outdent indent |  lists image media table   | removeformat '
+          'fullscreen undo redo   |  formatselect fontselect fontsizeselect | bold italic forecolor backcolor charmap  | alignleft aligncenter alignright alignjustify  |subscript  superscript|link unlink| bullist numlist outdent indent |  lists image media table   | removeformat '
         ]
       }
     }
@@ -69,6 +70,7 @@ export default {
         //此处为图片上传处理函数，这个直接用了base64的图片形式上传图片，
         //如需ajax上传可参考https://www.tiny.cloud/docs/configure/file-image-upload/#images_upload_handler
         images_upload_handler: (blobInfo, success, failure) => {
+          console.log(blobInfo)
           const img = 'data:image/jpeg;base64,' + blobInfo.base64()
           success(img)
         }
