@@ -12,7 +12,7 @@ router.beforeEach((to, from, next) => {
         path: '/dashboard',
         view: '/dashboard',
         isRouter: true,
-        isKeepalive: true,
+        isKeepalive: false,
         type: 'menu',
         children: [
           {
@@ -56,6 +56,18 @@ router.beforeEach((to, from, next) => {
           //   children: []
           // }
         ]
+      },
+      {
+        name: 'element ui',
+        path: '/element',
+        view: '/iframe',
+        isRouter: true,
+        isKeepalive: false,
+        externalLink: true, //外链
+        linkTarget: '_tab', //刷新自己
+        externalLinkAddress: 'https://element.eleme.cn/#/zh-CN/component/changelog',
+        type: 'menu',
+        children: []
       },
       {
         name: '外部链接',

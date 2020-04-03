@@ -5,6 +5,7 @@
       :init="init"
       :disabled="disabled"
       @onClick="onClick"
+      :key="id"
     >
     </editor>
   </div>
@@ -18,10 +19,8 @@ import 'tinymce/plugins/image'
 import 'tinymce/plugins/media'
 import 'tinymce/plugins/table'
 import 'tinymce/plugins/lists'
-import 'tinymce/plugins/contextmenu'
 import 'tinymce/plugins/wordcount'
 import 'tinymce/plugins/colorpicker'
-import 'tinymce/plugins/textcolor'
 import 'tinymce/plugins/link'
 import 'tinymce/plugins/fullscreen'
 import 'tinymce/plugins/fullpage'
@@ -43,7 +42,7 @@ export default {
     plugins: {
       type: [String, Array],
       default:
-        'lists image media table textcolor wordcount contextmenu link code fullscreen fullpage charmap'
+        'lists image media table  wordcount  link code fullscreen fullpage charmap'
     },
     toolbar: {
       type: [String, Array],
@@ -57,7 +56,9 @@ export default {
   data() {
     return {
       //初始化配置
+      id: 'richeditor-1',
       init: {
+        selector: '',
         language_url: '/tinymce/langs/zh_CN.js',
         language: 'zh_CN',
         skin_url: '/tinymce/skins/ui/oxide',
@@ -78,8 +79,8 @@ export default {
       myValue: this.value
     }
   },
-  mounted() {
-    tinymce.init({})
+  beforeDestroy() {
+    tinymce.remove()
   },
   methods: {
     //添加相关的事件，可用的事件参照文档=> https://github.com/tinymce/tinymce-vue => All available events
@@ -90,6 +91,13 @@ export default {
     //可以添加一些自己的自定义事件，如清空内容
     clear() {
       this.myValue = ''
+    },
+    initEditor() {
+      this.id = 'richeditor-' + new Date().getTime()
+      this.init.selector = '#' + this.id
+      this.$nextTick(() => {
+        tinymce.init(this.init)
+      })
     }
   },
   watch: {
@@ -99,6 +107,17 @@ export default {
     myValue(newValue) {
       this.$emit('input', newValue)
     }
+  },
+  mounted() {
+    if (!this.$route.meta.isKeepalive) {
+      this.initEditor()
+    }
+  },
+  activated() {
+    this.initEditor()
+  },
+  deactivated() {
+    tinymce.remove()
   }
 }
 </script>
