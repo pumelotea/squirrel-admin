@@ -12,11 +12,7 @@
       </el-breadcrumb>
     </div>
     <div class="content">
-      <iframe
-        class="main-iframe"
-        frameborder="0"
-        :src="url"
-      ></iframe>
+      <iframe class="main-iframe" frameborder="0" :src="url"></iframe>
     </div>
   </div>
 </template>
@@ -26,8 +22,8 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'PageIframeLayout',
   props: {
-    url:{
-      type:String
+    url: {
+      type: String
     },
     noTitle: {
       type: Boolean,

@@ -58,6 +58,18 @@ router.beforeEach((to, from, next) => {
         ]
       },
       {
+        name: 'element ui',
+        path: '/element',
+        view: '/iframe',
+        isRouter: true,
+        isKeepalive: false,
+        externalLink: true, //外链
+        linkTarget: '_tab', //刷新自己
+        externalLinkAddress: 'https://element.eleme.cn/#/zh-CN/component/changelog',
+        type: 'menu',
+        children: []
+      },
+      {
         name: '外部链接',
         path: '/links',
         view: '',

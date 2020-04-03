@@ -1,5 +1,6 @@
 <template>
   <page-layout>
+    <rich-text-editor v-model="aaa"></rich-text-editor>
     <template #alerts>
       <el-alert title="成功提示的文案" type="success" show-icon> </el-alert>
     </template>
@@ -82,7 +83,9 @@
             查看</el-button
           >
           <open-new-tab :link="'/dashboard?id=1'">
-            <el-button type="text" size="small" permission-btn-key="edit">编辑</el-button>
+            <el-button type="text" size="small" permission-btn-key="edit"
+              >编辑</el-button
+            >
           </open-new-tab>
         </template>
       </el-table-column>
@@ -214,10 +217,13 @@
 </template>
 
 <script>
+import RichTextEditor from '@/components/RichTextEditor'
 export default {
   name: 'index',
+  components: { RichTextEditor },
   data() {
     return {
+      aaa:'123123123',
       tableData: [
         {
           date: '2016-05-02',
@@ -389,8 +395,7 @@ export default {
       }, 1000)
     }
   },
-  mounted() {
-  }
+  mounted() {}
 }
 </script>
 

@@ -106,7 +106,7 @@ export default {
     }
 
     //如果存在lock缓存，那么强制加锁，忽略参数
-    if(localStorage.getItem('lock') === '1'){
+    if (localStorage.getItem('lock') === '1') {
       this.locked = true
       this.lock()
     }

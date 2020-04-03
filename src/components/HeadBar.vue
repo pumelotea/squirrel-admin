@@ -23,17 +23,21 @@
     </div>
     <div class="space"></div>
     <div class="actions">
-      <el-link class="action-item" :underline="false" @click="$store.commit('setScreenLock',true)">
-        <i class="el-icon-lock"></i
-        ></el-link>
+      <el-link
+        class="action-item"
+        :underline="false"
+        @click="$store.commit('setScreenLock', true)"
+      >
+        <i class="el-icon-lock"></i>
+      </el-link>
       <el-link class="action-item" :underline="false">
         <message-box />
       </el-link>
       <el-link class="action-item" :underline="false">
-        <i class="el-icon-picture"></i
-      ></el-link>
+        <i class="el-icon-picture"></i>
+      </el-link>
       <el-link class="action-item" :underline="false">
-        <theme-box/>
+        <theme-box />
       </el-link>
       <div class="action-item">
         <el-dropdown trigger="click">
@@ -47,7 +51,9 @@
             <el-dropdown-item>修改信息</el-dropdown-item>
             <el-dropdown-item>修改密码</el-dropdown-item>
             <el-dropdown-item disabled>改绑手机</el-dropdown-item>
-            <el-dropdown-item divided @click.native="logout">退出系统</el-dropdown-item>
+            <el-dropdown-item divided @click.native="logout">
+              退出系统
+            </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -61,12 +67,12 @@ import MessageBox from './MessageBox'
 import ThemeBox from './ThemeBox'
 export default {
   name: 'HeadBar',
-  components: { MessageBox,ThemeBox },
+  components: { MessageBox, ThemeBox },
   computed: {
     ...mapGetters(['isCollapse'])
   },
-  methods:{
-    logout(){
+  methods: {
+    logout() {
       this.$router.push('/login')
     }
   }

@@ -16,34 +16,34 @@
 </template>
 
 <script>
-  export default {
-    name: 'index'
-  }
+export default {
+  name: 'index'
+}
 </script>
 
 <style scoped>
-  .container {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #f3f3f3;
-    display: flex;
-  }
+.container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #f3f3f3;
+  display: flex;
+}
 
-  .content {
-    width: 50%;
-    margin: auto;
-  }
+.content {
+  width: 50%;
+  margin: auto;
+}
 
-  .picture {
-    display: flex;
-  }
+.picture {
+  display: flex;
+}
 
-  .text {
-    font-size: 100px;
-    text-align: center;
-    color: #bec8d1;
-  }
+.text {
+  font-size: 100px;
+  text-align: center;
+  color: #bec8d1;
+}
 </style>
