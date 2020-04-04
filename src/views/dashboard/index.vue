@@ -1,6 +1,5 @@
 <template>
   <page-layout>
-    <rich-text-editor v-model="aaa"></rich-text-editor>
     <template #alerts>
       <el-alert title="成功提示的文案" type="success" show-icon> </el-alert>
     </template>
@@ -217,13 +216,10 @@
 </template>
 
 <script>
-import RichTextEditor from '@/components/RichTextEditor'
 export default {
   name: 'index',
-  components: { RichTextEditor },
   data() {
     return {
-      aaa:'123123123',
       tableData: [
         {
           date: '2016-05-02',

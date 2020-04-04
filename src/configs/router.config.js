@@ -1,249 +1,40 @@
 import router from '../router'
 import store from '../store'
 import { forEachMenuTree } from '@/utils/router-util'
-
+import routerData from './routerData'
+import Vue from 'vue'
 // 路由拦截器
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   if (!store.state.isRouterInit) {
-    //菜单测试数据 TODO 真实数据应该从服务端读取
-    let mappings = [
-      {
-        name: '看板',
-        path: '/dashboard',
-        view: '/dashboard',
-        isRouter: true,
-        isKeepalive: true,
-        type: 'menu',
-        children: [
-          {
-            name: '重置',
-            permissionKey: 'reset',
-            path: '',
-            view: '',
-            isRouter: false,
-            isKeepalive: false,
-            type: 'button',
-            children: []
-          },
-          {
-            name: '新增',
-            permissionKey: 'add',
-            path: '',
-            view: '',
-            isRouter: false,
-            isKeepalive: false,
-            type: 'button',
-            children: []
-          },
-          {
-            name: '编辑',
-            permissionKey: 'edit',
-            path: '',
-            view: '',
-            isRouter: false,
-            isKeepalive: false,
-            type: 'button',
-            children: []
-          }
-          // {
-          //   name: '编辑弹出框取消',
-          //   permissionKey: 'cancel',
-          //   path: '',
-          //   view: '',
-          //   isRouter: false,
-          //   isKeepalive: false,
-          //   type: 'button',
-          //   children: []
-          // }
-        ]
-      },
-      {
-        name: 'element ui',
-        path: '/element',
-        view: '/iframe',
-        isRouter: true,
-        isKeepalive: false,
-        externalLink: true, //外链
-        linkTarget: '_tab', //刷新自己
-        externalLinkAddress: 'https://element.eleme.cn/#/zh-CN/component/changelog',
-        type: 'menu',
-        children: []
-      },
-      {
-        name: '外部链接',
-        path: '/links',
-        view: '',
-        isRouter: false,
-        isKeepalive: false,
-        type: 'menu',
-        children: [
-          {
-            name: '松鼠乐园外部1',
-            path: '',
-            view: '',
-            isRouter: true,
-            isKeepalive: true,
-            externalLink: true, //外链
-            linkTarget: '_self', //刷新自己
-            externalLinkAddress: 'http://www.squirrelzoo.com',
-            type: 'menu',
-            children: []
-          },
-          {
-            name: '松鼠乐园外部2',
-            path: '',
-            view: '',
-            isRouter: true,
-            isKeepalive: true,
-            externalLink: true, //外链
-            externalLinkAddress: 'http://www.squirrelzoo.com',
-            linkTarget: '_blank', //浏览器标签
-            type: 'menu',
-            children: []
-          },
-          {
-            name: '松鼠乐园内部',
-            path: '/squirrelzoo',
-            view: '/iframe',
-            isRouter: true,
-            isKeepalive: true,
-            externalLink: true, //外链
-            externalLinkAddress: 'http://www.squirrelzoo.com',
-            linkTarget: '_tab', //页内标签
-            type: 'menu',
-            children: []
-          },
-          {
-            name: '百度内部',
-            path: '/baidu',
-            view: '/iframe',
-            isRouter: true,
-            isKeepalive: true,
-            externalLink: true, //外链
-            externalLinkAddress: 'http://www.baidu.com',
-            linkTarget: '_tab', //页内标签
-            type: 'menu',
-            children: []
-          }
-        ]
-      },
-      {
-        name: '用户',
-        path: '/user-mgt',
-        view: '',
-        isRouter: false,
-        isKeepalive: false,
-        type: 'menu',
-        children: [
-          {
-            name: '高级管理',
-            path: '/adv',
-            view: '',
-            isRouter: false,
-            isKeepalive: false,
-            type: 'menu',
-            children: [
-              {
-                name: '高级111',
-                path: '/xxxxxx111',
-                view: '/role',
-                isRouter: true,
-                isKeepalive: false,
-                type: 'menu',
-                children: []
-              }
-            ]
-          },
-          {
-            name: '角色管理',
-            path: '/role',
-            view: '/role',
-            isRouter: true,
-            isKeepalive: true,
-            type: 'menu',
-            children: [
-              {
-                name: '新增',
-                permissionKey: 'add',
-                path: '',
-                view: '',
-                isRouter: false,
-                isKeepalive: false,
-                type: 'button',
-                children: []
-              },
-              {
-                name: '编辑弹出框取消',
-                permissionKey: 'cancel',
-                path: '',
-                view: '',
-                isRouter: false,
-                isKeepalive: false,
-                type: 'button',
-                children: []
-              }
-            ]
-          },
-          {
-            name: '菜单管理',
-            path: '/menu',
-            view: '/menu',
-            isRouter: true,
-            isKeepalive: false,
-            type: 'menu',
-            children: []
-          },
-          {
-            name: '用户管理',
-            path: '/user',
-            view: '/user',
-            isRouter: true,
-            isKeepalive: false,
-            type: 'menu',
-            children: []
-          }
-        ]
-      },
-      {
-        name: '测试管理',
-        path: '', //TODO  这个路径要拼接进实际的路由 //如果父节点为空，那么久产生一个临时的
-        view: '',
-        isRouter: false,
-        isKeepalive: false,
-        type: 'menu',
-        children: [
-          {
-            name: '测试项目组',
-            path: '/test/aaa',
-            view: '/role',
-            isRouter: true,
-            isKeepalive: false,
-            type: 'menu',
-            children: []
-          }
-        ]
-      },
-      {
-        name: '部门管理',
-        path: '/department',
-        view: '/department',
-        isRouter: true,
-        isKeepalive: false,
-        type: 'menu',
-        children: []
-      },
-      {
-        name: 'aaaaaa',
-        path: '/department1',
-        view: '/department',
-        isRouter: false,
-        isKeepalive: false,
-        type: 'menu',
-        children: []
-      }
-    ]
+    //模拟请求
+    let req = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ code: 200, list: routerData }) //请求成功
+        // reject({ code: 500 }) //请求失败
+      }, 500)
+    })
+    let mappings = { code: 500 }
+    let loading = null
+    try {
+      loading = Vue.prototype.$loading({
+        lock: true,
+        text: 'Loading',
+        background: 'rgba(0, 0, 0, 0)'
+      })
+      mappings = await req
+      loading.close()
+    } catch (e) {
+      loading && loading.close()
+    }
 
-    let { routerList, menuTree, tabNameMappings } = forEachMenuTree(mappings)
+    if (mappings.code === 500) {
+      Vue.prototype.$alert('路由加载失败', '路由异常')
+      return
+    }
+
+    let { routerList, menuTree, tabNameMappings } = forEachMenuTree(
+      mappings.list
+    )
     store.commit('setRouterMappings', routerList)
     store.commit('setMenuTree', menuTree)
     store.commit('setTabNameMappings', tabNameMappings)
