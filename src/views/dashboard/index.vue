@@ -6,17 +6,17 @@
     <template #actions>
       <el-row :gutter="10">
         <el-col :md="6">
-          <form-item-container :label="'1111'">
+          <form-item-container :label="'条件1'">
             <el-input v-model="value"></el-input>
           </form-item-container>
         </el-col>
         <el-col :md="6">
-          <form-item-container :label="'1111'">
+          <form-item-container :label="'条件2'">
             <el-input></el-input>
           </form-item-container>
         </el-col>
         <el-col :md="6">
-          <form-item-container :label="'1111'">
+          <form-item-container :label="'条件3'">
             <el-input></el-input>
           </form-item-container>
         </el-col>

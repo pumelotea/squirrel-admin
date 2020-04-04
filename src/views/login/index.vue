@@ -6,7 +6,7 @@
       </div>
       <div class="login-actions">
         <div class="login-form-content">
-          <div class="login-title">LTAdmin</div>
+          <div class="login-title">SquirrelAdmin</div>
           <div class="login-form-item">
             <el-input
               prefix-icon="el-icon-user"

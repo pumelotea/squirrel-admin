@@ -11,13 +11,13 @@
     >
       <template v-for="e in menuTree">
         <el-menu-item v-if="e.isRouter" :index="e.menuId">
-          <i class="el-icon-menu"></i>
+          <i :class="e.icon" v-if="e.icon"></i>
           <span slot="title">{{ e.name }}</span>
         </el-menu-item>
 
         <el-submenu :index="e.menuId" v-else>
           <template slot="title">
-            <i class="el-icon-location"></i>
+            <i :class="e.icon" v-if="e.icon"></i>
             <span slot="title">{{ e.name }}</span>
           </template>
           <MenuContent v-for="a in e.children" :data="a" :key="a.menuId" />
@@ -25,7 +25,7 @@
       </template>
     </el-menu>
 
-    <div class="copyright" v-if="!isCollapse">力通科技提供技术支持</div>
+    <div class="copyright" v-if="!isCollapse">松鼠Admin开发框架</div>
   </div>
 </template>
 

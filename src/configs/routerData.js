@@ -1,6 +1,7 @@
 const routerData = [
   {
     name: '看板',
+    icon:'el-icon-house',
     path: '/dashboard',
     view: '/dashboard',
     isRouter: true,
@@ -51,6 +52,7 @@ const routerData = [
   },
   {
     name: 'element ui',
+    icon:'el-icon-eleme',
     path: '/element',
     view: '/iframe',
     isRouter: true,
@@ -63,6 +65,7 @@ const routerData = [
   },
   {
     name: '外部链接',
+    icon:'el-icon-link',
     path: '/links',
     view: '',
     isRouter: false,
@@ -71,6 +74,7 @@ const routerData = [
     children: [
       {
         name: '松鼠乐园外部1',
+        icon:'el-icon-menu',
         path: '',
         view: '',
         isRouter: true,
@@ -83,6 +87,7 @@ const routerData = [
       },
       {
         name: '松鼠乐园外部2',
+        icon:'el-icon-menu',
         path: '',
         view: '',
         isRouter: true,
@@ -95,6 +100,7 @@ const routerData = [
       },
       {
         name: '松鼠乐园内部',
+        icon:'el-icon-menu',
         path: '/squirrelzoo',
         view: '/iframe',
         isRouter: true,
@@ -107,6 +113,7 @@ const routerData = [
       },
       {
         name: '百度内部',
+        icon:'el-icon-menu',
         path: '/baidu',
         view: '/iframe',
         isRouter: true,
@@ -121,6 +128,7 @@ const routerData = [
   },
   {
     name: '用户',
+    icon:'el-icon-user',
     path: '/user-mgt',
     view: '',
     isRouter: false,
@@ -129,6 +137,7 @@ const routerData = [
     children: [
       {
         name: '高级管理',
+        icon:'el-icon-menu',
         path: '/adv',
         view: '',
         isRouter: false,
@@ -136,7 +145,8 @@ const routerData = [
         type: 'menu',
         children: [
           {
-            name: '高级111',
+            name: '高级',
+            icon:'el-icon-menu',
             path: '/xxxxxx111',
             view: '/role',
             isRouter: true,
@@ -148,6 +158,7 @@ const routerData = [
       },
       {
         name: '角色管理',
+        icon:'el-icon-menu',
         path: '/role',
         view: '/role',
         isRouter: true,
@@ -178,6 +189,7 @@ const routerData = [
       },
       {
         name: '菜单管理',
+        icon:'el-icon-menu',
         path: '/menu',
         view: '/menu',
         isRouter: true,
@@ -187,6 +199,7 @@ const routerData = [
       },
       {
         name: '用户管理',
+        icon:'el-icon-menu',
         path: '/user',
         view: '/user',
         isRouter: true,
@@ -198,7 +211,8 @@ const routerData = [
   },
   {
     name: '测试管理',
-    path: '', //TODO  这个路径要拼接进实际的路由 //如果父节点为空，那么久产生一个临时的
+    icon:'el-icon-s-data',
+    path: '',
     view: '',
     isRouter: false,
     isKeepalive: false,
@@ -206,6 +220,7 @@ const routerData = [
     children: [
       {
         name: '测试项目组',
+        icon:'el-icon-menu',
         path: '/test/aaa',
         view: '/role',
         isRouter: true,
@@ -217,6 +232,7 @@ const routerData = [
   },
   {
     name: '部门管理',
+    icon:'el-icon-box',
     path: '/department',
     view: '/department',
     isRouter: true,
@@ -226,6 +242,7 @@ const routerData = [
   },
   {
     name: '组件Demo',
+    icon:'el-icon-cpu',
     path: '/demo',
     view: '',
     isRouter: false,
@@ -234,6 +251,7 @@ const routerData = [
     children: [
       {
         name: '富文本编辑器',
+        icon:'el-icon-menu',
         path: '/richeditor',
         view: '/richeditor',
         isRouter: true,

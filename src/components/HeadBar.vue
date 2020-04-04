@@ -8,8 +8,10 @@
         'brand-collapse': isCollapse
       }"
     >
-      <span :class="{ brand: !isCollapse }">LT</span>
-      <span v-if="!isCollapse">Admin</span>
+      <div class="brand">
+        <img class="band-logo" src="/images/logo.png" />
+      </div>
+      <div v-if="!isCollapse">Admin</div>
     </div>
     <div class="actions">
       <el-link
@@ -89,17 +91,6 @@ export default {
   box-sizing: border-box;
 }
 
-.logo {
-  width: 220px;
-  height: 100%;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  font-size: 30px;
-}
-
 .space {
   flex: 1;
 }
@@ -122,6 +113,17 @@ export default {
   justify-content: center;
 }
 
+.logo {
+  width: 220px;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
 .collapse-width-menu {
   width: 64px;
   transition: all 0.2s ease-in-out;
@@ -133,13 +135,17 @@ export default {
 }
 
 .brand {
-  color: #6fbfff;
   font-weight: bold;
+  display: flex;
 }
 
 .brand-collapse {
   color: white !important;
-  background: #6fbfff;
-  font-weight: bold;
+  display: flex;
+}
+
+.band-logo {
+  height: 60px;
+  margin: auto;
 }
 </style>
