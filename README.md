@@ -1,4 +1,4 @@
-# lt-admin
+# SquirrelAdmin
 
 基于饿了么ui开发的一套admin后台系统开发基础框架
 
