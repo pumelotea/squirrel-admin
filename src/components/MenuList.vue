@@ -25,7 +25,9 @@
       </template>
     </el-menu>
 
-    <div class="copyright" v-if="!isCollapse">松鼠Admin开发框架</div>
+    <div class="copyright" v-if="!isCollapse">
+      <el-link href="https://www.squirrelzoo.com" :underline="false">松鼠Admin开发框架</el-link>
+    </div>
   </div>
 </template>
 
