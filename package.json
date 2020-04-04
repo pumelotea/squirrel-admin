@@ -1,12 +1,12 @@
 {
-  "name": "lt-admin",
+  "name": "squirrel-admin",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve --mode dev --dest=dist-dev",
     "build": "vue-cli-service build --mode prod --dest=dist-prod",
     "lint": "vue-cli-service lint",
-    "build-docker": "vue-cli-service build --mode prod --dest=dist-prod && docker build . -t lt-admin && docker save > lt-admin.img lt-admin:latest",
+    "build-docker": "vue-cli-service build --mode prod --dest=dist-prod && docker build . -t squirrel-admin",
     "build-prod": "vue-cli-service build --mode prod --dest=dist-prod",
     "build-test": "vue-cli-service build --mode test --dest=dist-test"
   },
