@@ -25,19 +25,6 @@
     </div>
     <div class="space"></div>
     <div class="actions">
-      <el-popover placement="bottom" v-model="visible">
-        <el-link
-          class="action-item"
-          :underline="false"
-          slot="reference"
-          href="https://github.com/pumelotea/squirrel-admin"
-        >
-          <i class="fa fa-github"></i>
-        </el-link>
-        <el-link type="primary" disabled>
-          别找了，在这呢
-        </el-link>
-      </el-popover>
       <el-link
         class="action-item"
         :underline="false"
@@ -86,20 +73,10 @@ export default {
   computed: {
     ...mapGetters(['isCollapse'])
   },
-  data() {
-    return {
-      visible: false
-    }
-  },
   methods: {
     logout() {
       this.$router.push('/login')
     }
-  },
-  mounted() {
-    setTimeout(() => {
-      this.visible = true
-    }, 3000)
   }
 }
 </script>
