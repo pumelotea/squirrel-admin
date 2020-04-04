@@ -31,5 +31,6 @@ http://admin.squirrelzoo.com/
 10. 全局水印
 11. 主题切换
 12. 菜单外链的跳转
+13. 导航tab关闭后keepalive缓存同步删除
 
 
