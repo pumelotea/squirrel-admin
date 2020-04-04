@@ -2,6 +2,9 @@
 
 基于饿了么ui开发的一套admin后台系统开发基础框架
 
+# 演示地址
+http://admin.squirrelzoo.com/
+
 # 已经集成的类库
 1. element-ui
 2. axios
