@@ -12,6 +12,7 @@ http://admin.squirrelzoo.com/
 5. jscookie
 6. vconsole
 7. vuex
+8. tinymce
 
 # 代码规范类库
 1. prettier
